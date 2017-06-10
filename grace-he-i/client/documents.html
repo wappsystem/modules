@@ -1,0 +1,53 @@
+<section>
+      VmInclude:__LIB__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        _fields="_Form,Client ID|client_uid,Client|client,Document,Last Modified|lastModified,Size,Description,Type";
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+        //-------------------------------------
+        VmInclude:__LIB__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__LIB__/vmiis/Common-Code/style/ease-in-out.js
+		VmInclude:__CURRENT_PATH__/task.js
+        //-------------------------------------
+        //var client_pid=$vm.module_list[_app_id+'client'].var.client_tid;
+        //var document_type_list_tid=$vm.module_list[_app_id+'client'].var.document_type_list_tid;
+        //-------------------------------------
+        $('#D__ID').on('load',function(){ _set_req(); _request_data();  })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            switch(field){
+                case 'client':
+                case 'client_uid':
+                    records[I].vm_readonly[field]=true;
+                    td.css('color','#888');
+                    break;
+                case 'Document':
+                    VmInclude:__LIB__/vmiis/Common-Code/grid/field_file_with_size.js
+                break;
+                case 'Size':
+                    records[I].vm_custom[field]=true;
+                break;
+                case 'lastModified':
+                    records[I].vm_custom[field]=true;
+                break;
+                case 'Type':
+                    var sql="with tb as (select name=@('Document_Type'),value2=uid from [TABLE-"+document_type_list_tid+"])";
+                    sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
+                    VmInclude:__LIB__/vmiis/Common-Code/grid/field_auto.js
+                    break;
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            dbv.PPID=client_pid;
+            if(record.client_uid!==undefined) dbv.PUID=record.client_uid;
+            return true;
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__LIB__/vmiis/Common-Code/grid/grid.css
+</style>
