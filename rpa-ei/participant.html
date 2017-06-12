@@ -5,7 +5,7 @@
 function F__ID(){
 	//-------------------------------------
 	//_fields="_Form,Record_ID,Study_ID,CO2_Study_ID,Screening_No,Initials,DOB,Gender,co2,co2_group,early,Randomised,_Data_Entry,_Setup,_Quest";
-	_fields="_Form,Record_ID,Study_ID,CO2_Study_ID,Screening_No,Initials,DOB,Gender,co2,co2_group,early,Randomised";
+	_fields="_Form,Record_ID,Study_ID,CO2_Study_ID,Screening_No,Initials,DOB,Gender,co2,co2_group,early,Randomised,_Data_Entry";
 	_fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
 	//-------------------------------------
 	VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
@@ -52,6 +52,7 @@ function F__ID(){
 	            VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
 	        break;
 	        case '_Data_Entry':
+				/*
 	            records[I].vm_custom[field]=true;
 	            if(_records[I].UID===undefined) return;
 	            td.html("<u style='cursor:pointer'>Data Entry</u>");
@@ -61,6 +62,48 @@ function F__ID(){
 	                    participant_name:_records[I].Subject_Initials,
 	                });
 	            });
+				*/
+				records[I].vm_custom[field]=true;
+				if(_records[I].UID===undefined) return;
+				td.html("<u style='cursor:pointer'>Data Entry</u>");
+				td.find('u').on('click',function(){
+					var panel_id='child_panel';
+					var module="M_"+_sys.UID+"_"+panel_id;
+					if($vm.module_list[module]==undefined){
+						var panel_url=_sys.config.panels[panel_id].url;
+						//---------------------------
+						$vm.module_list[module]={
+							url:panel_url,
+							var:{},
+						}
+						//---------------------------
+						var this_mobj  =_mobj;
+						var this_record=records[I];
+						var op={
+							//----------------
+							sys:_sys,
+							mobj:this_mobj,
+							record:this_record,
+							//----------------
+							panel_id:'child_panel',
+							panel_name:records[I].Initials+' '+records[I].DOB,
+							//----------------
+						}
+						$vm.load_module_by_name(module,$vm.root_layout_content_slot,op)
+					}
+					else{
+						var this_record=records[I];
+						var op={
+							//----------------
+							record:this_record,
+							//----------------
+							panel_name:records[I].Initials+' '+records[I].DOB,
+							//----------------
+						}
+						var DOM_id=$vm.module_list[module].id;
+						$vm.show_module(DOM_id,$vm.root_layout_content_slot,op);
+					}
+				});
 	            break;
 	        case '_Setup':
 	            records[I].vm_custom[field]=true;
