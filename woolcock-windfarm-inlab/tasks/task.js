@@ -7,6 +7,7 @@ var notes_tid		=$vm.module_list[ids.task_notes].table_id;
 var site_filter_tid	='';
 var sql_participant=parameters.sql_participant;
 var this_module=$vm.vm['__ID'].name;
+var visit_task=$vm.module_list[this_module].visit_task;
 if(visit_task==undefined) visit_task=$vm.module_list[this_module].section_name+" - "+$vm.module_list[this_module].name;
 //-------------------------------------
 _record_type="s2";
