@@ -1,0 +1,78 @@
+<section>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__BASE__/vmiis/Common-Code/clinical_trials/task.js
+        //-------------------------------------
+        _task_fields="AE_During_Study,AE_number,AE_Dx,Meddra llt id|LLT_ID,Meddra llt|llt_Name,Meddra pt id|PT_ID,Meddra pt|pt_Name,Meddra soc id|SOC_ID,Meddra soc|soc_Name,Onset_Date,Onset_Time,Resolution_Date,Resolution_Time,Serious,Intensity,Frequency,Relationship_Drug,Tx_required,Tx_required_Comments,Treatment,Outcome";
+        _fields="_Form,Status|S3,Notes|NT,Study_ID|Participant,"+_task_fields;
+        _fields+=",Submit Date|DateTime,Submitted by|Author,_Delete,_Hidden|Participant_uid";
+        _grid_to_form_parameters={task_fields:_task_fields};
+        //-------------------------------------
+        $('#D__ID').on('load',function(){  _set_req(); _request_data(); })
+        $('#D__ID').on('back',function(){  _set_req(); _request_data(); })
+        //-------------------------------------
+        _cell_render=function(records,I,field,td,set_value,source){
+            _default_cell_render(records,I,field,td,set_value,source);
+            switch(field){
+                case 'Serious':
+                case 'AE_During_Study':
+                    var html="<select style='border:0;''>\
+                    <option value='Y' >Yes</option>\
+                    <option value='N' >No</option>\
+                    </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+                case 'Intensity':
+                    var html="<select style='border:0;''>\
+                    <option value='Mild' >Mild</option>\
+                    <option value='Mod' >Moderate</option>\
+                    <option value='Severe' >Severe</option>\
+                    </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+                case 'Frequency':
+                    var html="<select style='border:0;''>\
+                            <option>Single continuous episode</option>\
+                            <option>Intermittent</option>\
+                            </select>\
+                    ";
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_select.js
+                break;
+                case 'Resolution_Date':
+                case 'Onset_Date':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_date.js
+                break;
+                case 'AE_During_Study':
+                    td.html('<input type=checkbox />');
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_checkbox.js
+                break;
+                case 'DOB':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_dob.js
+                break;
+                case 'Onset_Time':
+                case 'Resolution_Time':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_time.js
+                break;
+                case 'Document':
+                    VmInclude:__BASE__/vmiis/Common-Code/grid/field_file.js
+                break;
+
+            }
+        }
+        //-------------------------------------
+        _before_submit=function(record,dbv){
+            return _set_status_and_participant(record,dbv);
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+</style>
