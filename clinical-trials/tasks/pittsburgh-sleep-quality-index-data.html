@@ -1,0 +1,26 @@
+<div id=D__ID>
+    <section>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            VmInclude:__CURRENT_PATH__/task-data.js
+            //-------------------------------------
+            var fields="PSQI1,PSQI2,PSQI3,PSQI4,PSQI5a,PSQI5b,PSQI5c,PSQI5d,PSQI5e,PSQI5f,PSQI5g,PSQI5h,PSQI5i,PSQI5j,PSQI5ji,PSQI6,PSQI7,PSQI8,PSQI9,PSQI10,PSQI10a,PSQI10b,PSQI10c,PSQI10d,PSQI10e,PSQI10ei,PSQIDURAT,PSQIDISTB,PSQILATEN,PSQIDAYDYS,PSQIHSE,PSQISLPQUAL,PSQIMEDS,PSQI";
+            m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields="Participant_uid,Participant,"+fields;
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+        #D__ID{
+            height:100%;
+            overflow:auto;
+            animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+        }
+    </style>
+</div>
