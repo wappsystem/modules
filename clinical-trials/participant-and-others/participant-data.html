@@ -42,9 +42,9 @@
                         td.find('u').on('click',function(){
     						var d="";if($vm.server=='development') d="&database=development";
     						var p="?username="+records[I].S2+"&password="+records[I].S3+d;
-    						var q_url="https://www.vmiis.com/apps/online-questionnaire.html"+p;
+    						var q_url="https://www.wappsystem.com.au/clinical-trials-online-questionnaire/index.html"+p;
                             if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-    							q_url=q_url.replace("https://www.vmiis.com/","http://127.0.0.1:8000/vmiis/your-company-business-portal/")
+    							q_url=q_url.replace("https://www.wappsystem.com.au/","http://127.0.0.1:8000/wappsystem/")
     						};
     						window.open(q_url);
                         });
