@@ -9,9 +9,12 @@
 			$('#D__ID').on('load',function(){
 				$('#section_1__ID').css('height',($('body').height()-$('#header').outerHeight())+'px');
 			})
-            $vm.load_component('https://modules.wappsystem.com.au/components/health.html','section_1__ID');
-            $vm.load_component('https://modules.wappsystem.com.au/components/service-001/c.html','section_2__ID');
-            $vm.load_component('https://modules.wappsystem.com.au/components/doctor-001/c.html','section_3__ID');
+//            $vm.load_component('https://modules.wappsystem.com.au/components/clinical-trial.html','section_1__ID');
+//            $vm.load_component('https://modules.wappsystem.com.au/components/service-001/c.html','section_2__ID');
+//            $vm.load_component('https://modules.wappsystem.com.au/components/doctor-001/c.html','section_3__ID');
+            $vm.load_component('http://127.0.0.1:8000/wappsystem/modules/components/clinical-trial.html','section_1__ID');
+            $vm.load_component('http://127.0.0.1:8000/wappsystem/modules/components/clinical-001/c.html','section_2__ID');
+            $vm.load_component('http://127.0.0.1:8000/wappsystem/modules/components/doctor-001/c.html','section_3__ID');
 		}
         $vm.load_component=function(url,div){
             var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
