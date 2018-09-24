@@ -1,0 +1,200 @@
+<div id=redca__ID>
+    <section class="section-heading">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 >Spardac's Main Features</h2>
+                </div>
+            </div>
+        </div>
+	</section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.03.png);">
+                </div>
+                <figcaption>
+                    <h3>Recruitment</h3>
+                    <p>Do recruitment online. Forget about call centre and do preliminary screening and registration online.</p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.01.png);">
+                </div>
+                <figcaption>
+                    <h3>Collaboration</h3>
+                    <p>Supports multisite<br>
+                       Participant at each site can be isolated via permission<br>
+                       <br>
+                   </p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.02.png);">
+                </div>
+                <figcaption>
+                    <h3>Audit trail</h3>
+                    <p>No entered data is ever deleted. All changes are recorded.<br>
+                        Traffic lights and counting records are helping to check for missing data<br>
+                    </p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.08.png);">
+                </div>
+                <figcaption>
+                    <h3>Modern</h3>
+                    <p>Responsive interface - so it works on mobile phones.<br>Single Page Application (SPA)<br>API Connection to database server <br>No server side coding</p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.05.png);">
+                </div>
+                <figcaption>
+                    <h3>Permission</h3>
+                    <p>Administrator for the application can add users and has full control over the permission. Making double blinded studies possible, with randomisation in the database.<br>Every database table has individual permission control. Add, Modify and Read table.</p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.06.png);">
+                </div>
+                <figcaption>
+                    <h3>Security</h3>
+                    <p>Database server on Amazon Web Servies (Sydney). AWS Compliance Program see https://aws.amazon.com/compliance/programs/<br>
+                    We use API for accessing the database. Always using encryption in all communication.</p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.04.png);">
+                </div>
+                <figcaption>
+                    <h3>Customisable</h3>
+                    <p>A very flexible structure enables any change possible. You can do modification yourself or ask us to for help.
+                        <br>eg. Advanced calculation form manual inputs or files, Extract information and add to database from uploaded files
+                        <br>We can install the database inluding API on your preferred server.
+                    </p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+            <div class="col-sm col-md-6 col-lg-3 snip1552">
+                <div class="image" style="background-image: url(__CURRENT_URL__.07.png);">
+                </div>
+                <figcaption>
+                    <h3>Add-ons</h3>
+                    <p>Scheduler for participants visits.<br>Bookkeping for managing your project's finances<br>If you have permission to use Meddra - Adverse event classifiaction can be added.
+                    </p>
+                </figcaption>
+                <a href="?/donate"></a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#redca__ID a').on('click',function(e){
+            e.preventDefault();
+            var href=$(this).attr('href').replace('?\/','');
+            href=href.replace(/\//g,'_');
+            $vm.load_module_v2(href,$vm.root_layout_content_slot,{});
+        })
+    </script>
+    <style>
+        #redca__ID{
+            background-color: rgba(255,255,255,0.3);
+        }
+        #redca__ID .section-heading {
+    		padding: 40px 0px;
+    		text-align: center;
+            font-family: "Nunito Sans", Arial, sans-serif;
+    	}
+        #redca__ID .section-heading h2 {
+            font-family: "Roboto Slab", Arial, sans-serif;
+    		font-size: 48px;
+    		font-weight: 500;
+    	}
+        #redca__ID .section-heading p {
+            font-size: 20px;
+            font-weight: 600;
+    	}
+        #redca__ID .image{
+            min-width: 230px;
+            height:350px;
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+        #redca__ID .snip1552:hover>.image{
+            opacity: 0;
+        }
+        #redca__ID .snip1552 * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-transition: all 0.45s ease;
+            transition: all 0.45s ease;
+        }
+        #redca__ID .snip1552 figcaption {
+          position: absolute;
+          top: 40px;
+          bottom: 40px;
+          left: 40px;
+          right: 40px;
+          z-index: 1;
+          bottom: 0;
+        }
+
+        #redca__ID .snip1552 h3,
+        #redca__ID .snip1552 p {
+          margin: 0;
+          opacity: 0;
+          letter-spacing: 1px;
+        }
+
+        #redca__ID .snip1552 h3 {
+          font-family: "Roboto Slab", Arial, sans-serif;
+          -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+          text-transform: uppercase;
+          font-weight: 400;
+          margin-bottom: 5px;
+        }
+
+        #redca__ID .snip1552 p {
+          font-family: "Nunito Sans", Arial, sans-serif;
+          font-weight: normal;
+          color: #111;
+          font-size: 0.9em;
+          padding-left: 15px;
+          -webkit-transform: translateX(-25px);
+          transform: translateX(-25px);
+        }
+
+        #redca__ID .snip1552 a {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+        }
+        /*
+        #redca__ID .snip1552:hover > img,
+        #redca__ID .snip1552.hover > img {
+          opacity: 0.1;
+        }
+        */
+        #redca__ID .snip1552:hover h3,
+        #redca__ID .snip1552.hover h3,
+        #redca__ID .snip1552:hover p,
+        #redca__ID .snip1552.hover p {
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+          opacity: 1;
+        }
+    </style>
+</div>
