@@ -1,6 +1,6 @@
 <div id=D__ID>
     <div>
-        VmInclude:__COMPONENT__/module/grid.v1.html
+        VmInclude:__CURRENT_PATH__/../../../components/grid.v1h.html
     </div>
     <script>
         function F__ID(){
@@ -12,6 +12,13 @@
             m.form_fields=fields;
             //-------------------------------------
             var login_setup_tid=$vm.module_list[m.prefix+'participant-login-setup'].table_id;
+            //-------------------------------------
+            m.load=function(){
+                $vm.load_component('http://127.0.0.1:8000/wappsystem/modules/components/help.html','section_help__ID');
+                $vm.load_component('http://127.0.0.1:8000/wappsystem/modules/components/help-participant.html','section_help2__ID');
+                //$('#section_help__ID').hide().
+                $("#title__ID").text('Participant List');
+            }
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
@@ -70,6 +77,28 @@
                 sql+="select Information,ID,UID,tb.PUID,DateTime,Modified,Author,RowNum,S2,S3 from tb left join tb2 on tb.UID=tb2.PUID where RowNum between @I6 and @I7";
                 var sql_n="select count(ID) from [TABLE-"+m.db_pid+"-@S1]";
             	m.req={cmd:'read',qid:m.qid,sql:sql,sql_n:sql_n,s1:'"'+$('#keyword__ID').val()+'"',I:$('#I__ID').text(),page_size:$('#page_size__ID').val()}
+            }
+            //--------------------------------------------------------
+            $vm.load_component=function(url,div){
+                var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
+                var ver=localStorage.getItem(apppath+url+"ver");
+                var txt=localStorage.getItem(apppath+url+"txt");
+                var http127=0;
+        		if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1) http127=1;
+                if(ver!=$vm.ver[1] || http127==1 || txt==null){
+                    $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                        localStorage.setItem(apppath+url+"txt",new_txt);
+                        localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
+                        console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
+                        new_txt=new_txt.replace(/__CURRENT_URL__/g,url);
+                        $('#'+div).html(new_txt);
+                    },'text');
+                }
+                else{
+                    console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]+" 127:"+http127);
+                    txt=txt.replace(/__CURRENT_URL__/g,url);
+                    $('#'+div).html(txt);
+                }
             }
             //-------------------------------------
         }

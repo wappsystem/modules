@@ -2,8 +2,10 @@
 var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
 //-------------------------------------
 var participant_pid=$vm.module_list[prefix+'participant-data'].table_id;
-var notes_pid=$vm.module_list[prefix+'edc-notes-data'].table_id;
-var participant_info=function(record){ if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID; }
+var notes_pid=$vm.module_list[prefix+'notes-data'].table_id;
+var participant_info=function(record){ /*if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID; */
+    var p_field=m.participant_fields.split(',')
+    alert(p_field.length)}
 //-------------------------------------
 m.set_req=function(){
     var participant_where="";

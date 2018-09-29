@@ -17,6 +17,8 @@ var I=0, loop_1=setInterval(function (){
 },100);
 //-------------------------------------
 m.load=function(){
+    alert(JSON.stringify($vm.module_list[m.prefix+'participant-fields']));
+    var ml=$vm.module_list[m.prefix+'participant-fields']
     m.input=$vm.vm['__ID'].input; if(m.input==undefined) m.input={};
     $('#F__ID')[0].reset();
     $('#submit__ID').show();

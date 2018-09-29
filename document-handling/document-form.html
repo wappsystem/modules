@@ -1,0 +1,119 @@
+<div id=D__ID>
+    <section id=form_container__ID>
+        <div id=header__ID>
+    		Document upload
+    	</div>
+    	<form id=F__ID>
+            <div class="container">
+                <!-- Form Inputs-------------------------------------->
+                <div class='row row__ID'>
+    				<div class="col">
+    					<span>Description</span>
+    					<input type=text class=form-control name=Description>
+    				</div>
+    			</div>
+                <div class='row row__ID'>
+    				<div class="col">
+    					<span>Document</span>
+                        <div class="col-sm" id=Document__ID data-id=Document></div>
+    				</div>
+    			</div>
+                <!---------------------------------------------------->
+
+
+                <!-- submit button part for all tsak forms------------>
+                <br>
+    			<div class="row">
+    				<div class=col>
+    					<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+    				</div>
+    			</div>
+                <!---------------------------------------------------->
+        	</div>
+        </form>
+    </section>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            //-------------------------------------
+            var start=function(){
+            }
+            //-------------------------------------
+            var I=0;
+            var loop__ID=setInterval(function (){
+                if($vm['jquery-ui-min-js']!=undefined){
+                    clearInterval(loop__ID); start();
+                }
+                I++; if(I>50){
+                    clearInterval(loop__ID); alert("jquery-ui.min.js is not installed.");
+                }
+            },100);
+            //-------------------------------------
+            m.default_load=m.load;
+    		m.load=function(){
+    			m.default_load();
+    			var record=$vm.vm['__ID'].input.record;
+                $vm.render_file_field_v2(record,'__ID',$('#Document__ID'),function(size,lastModified){
+    				$('#Document__ID').val(lastModified);
+    			});
+    		}
+    		//-------------------------------------
+        }
+    </script>
+    <style>
+        .file_button__ID{
+    		cursor: pointer;
+    		padding-left: 10px;
+    		float: right;
+    		line-height: 10px;
+    		margin-top:4px;
+    		margin-right:3px;
+    		color: #000;
+    	}
+        #D__ID{
+    		height:100%;
+    		overflow:auto;
+    		animation: vm_module_fadein 1.0s;
+            background-color: #fff;
+    	}
+        #form_container__ID{
+            margin-top:20px;
+    		max-width: 700px;
+    		margin-left: auto;
+    		margin-right: auto;
+    		font-family: Verdana,sans-serif;
+        	font-size: 15px;
+        	line-height: 1.5;
+    	}
+        #F__ID{
+    		border:1px solid #bbb;
+            border-top-width: 0;
+    		padding:6px 15px 20px 15px;
+    	}
+    	#header__ID{
+    		background-color:#727b84;
+    		color:#fff;
+    		padding:10px 15px 10px 15px;
+    		font-size:120%;
+            border:1px solid #bbb;
+            border-bottom-width: 0;
+    	}
+        .row__ID{
+    		padding:6px 0;
+    	}
+    	.row__ID:hover{
+    		background-color: rgba(0,0,0,0.1);
+    	}
+    	.row__ID span{
+            font-weight:bold;
+        	display: inline-block;
+        	padding: 5px 0;
+    	}
+    	@media screen and (max-width:768px){
+    		#form_container__ID{
+    			padding:20px 10px 50px 10px;
+    		}
+    	}
+    </style>
+</div>

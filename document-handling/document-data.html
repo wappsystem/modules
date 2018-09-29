@@ -1,0 +1,34 @@
+<div id=D__ID>
+    <div>
+        VmInclude:__COMPONENT__/module/grid.v1.html
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/grid.v1.js
+            //-------------------------------------
+            var fields="Description,Document";
+            m.fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+            m.form_fields=fields;
+            //-------------------------------------
+            $('#elapsed__ID').hide();
+            m.cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case 'Document':
+                        records[I].vm_custom[field]=true;
+                        if(records[I][field]!=undefined && records[I][field]!=""){
+                            td.html("<u style='cursor:pointer'>"+records[I][field]+"</u>");
+                            td.find('u').on('click',function(){
+                                $vm.open_link_v2(records[I].ID,records[I][field],5);
+                            })
+                        }
+                    break;
+                }
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        VmInclude:__COMPONENT__/module/grid.v1.css
+    </style>
+</div>
