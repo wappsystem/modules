@@ -2,13 +2,16 @@ var wait1=function(){
     //-------------------------------------
     //for auto select participant
     var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
-    var participant_sql	="JSON_VALUE(Information,'$.Subject_Initials')+' '+JSON_VALUE(Information,'$.DOB')";
+    var part_field=$vm.module_list[m.prefix+'participant-fields'].fields;
+    var participant_sql	="";
+    if(part_field.field1!="") participant_sql = "JSON_VALUE(Information,'$."+part_field.field1+"')";
+    if(part_field.field2!="") participant_sql += "+' '+JSON_VALUE(Information,'$."+part_field.field2+"')";
+    if(part_field.field3!="") participant_sql += "+' '+JSON_VALUE(Information,'$."+part_field.field3+"')";
     var sql="with tb as (select name="+participant_sql+",value2=uid from [TABLE-"+participant_tid+"])";
     sql+=" select top 10 name,value=name,value2 from tb where Name like '%'+@S1+'%' ";
     $vm.autocomplete($('#Participant__ID'),sql,function(key,value){
         $("#F__ID input[name="+key+"]").val($vm.text(value));
     })
-    var participant_name =function(record){ if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID;}
 }
 //-------------------------------------
 var I=0, loop_1=setInterval(function (){
@@ -17,8 +20,6 @@ var I=0, loop_1=setInterval(function (){
 },100);
 //-------------------------------------
 m.load=function(){
-    alert(JSON.stringify($vm.module_list[m.prefix+'participant-fields']));
-    var ml=$vm.module_list[m.prefix+'participant-fields']
     m.input=$vm.vm['__ID'].input; if(m.input==undefined) m.input={};
     $('#F__ID')[0].reset();
     $('#submit__ID').show();
@@ -27,6 +28,19 @@ m.load=function(){
     //--------------------------
     //from new or questionnaire
     var participant_record=m.input.participant_record;
+    //--------------------------
+    var participant_name =function(record){
+        var pf=$vm.module_list[m.prefix+'participant-fields'].fields;
+        if(record[pf.field1]!=undefined)
+        {
+            var pn=record[pf.field1];
+            if (record[pf.field2]!="" && record[pf.field2]!=undefined ) pn+=' '+record[pf.field2];
+            if (record[pf.field3]!="" && record[pf.field3]!=undefined ) pn+=' '+record[pf.field3];
+            return pn;
+        }
+        else return record.UID;
+    }
+    //--------------------------
     if(task_record==undefined && participant_record!=undefined && participant_record.UID!=undefined){
         $("#F__ID input[name=Participant]").val(participant_name(participant_record));
         $("#F__ID input[name=Participant_uid]").val(participant_record.UID);

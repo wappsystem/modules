@@ -50,10 +50,22 @@
         //---------------------------------------------
         var this_module			=$vm.module_list[$vm.vm['__ID'].name];
         var prefix				=this_module.prefix;
-        alert(JSON.stringify(this_module))
         var form_tid      		=this_module.table_id;
         var participant_tid     =""; if($vm.module_list[prefix+'participant-data']!=undefined) participant_tid=$vm.module_list[prefix+'participant-data'].table_id;
-        var get_participant_name=function(record){return record.Subject_Initials;}
+//        var get_participant_name=function(record){return record.Subject_Initials;}
+        var get_participant_name =function(record){
+            var pf=$vm.module_list[prefix+'participant-fields'].fields;
+            if(record[pf.field1]!=undefined)
+            {
+                var pn=record[pf.field1];
+                if (record[pf.field2]!="" && record[pf.field2]!=undefined ) pn+=' '+record[pf.field2];
+                if (record[pf.field3]!="" && record[pf.field3]!=undefined ) pn+=' '+record[pf.field3];
+                return pn;
+            }
+            else return record.UID;
+        }
+        //--------------------------
+
         var setup_record;
         //-------------------------------------
 		var setup_pid=this_module.table_id;
