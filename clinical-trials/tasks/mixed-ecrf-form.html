@@ -1,0 +1,225 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+        <!-- form container start -->
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+              <!-- form start -->
+              <form id="F__ID">
+                 <h3>eCRF with option list, text area, number inputs, file upload and check box</h3>
+                 <!-- participant part for all tsak forms -------------------->
+                 <div class="form-group">
+                    <fieldset class="subquestions">
+                        <label ><span class="">Participant</span>
+                            <input type=text name="Participant" class=form-control id=Participant__ID data-id="Participant" />
+                        </label><br>
+                        <label ><span class="">Participant ID</span>
+                            <input type=text name="Participant_uid" class=form-control readonly />
+                        </label>
+                     </fieldset>
+                 </div>
+                 <!-- form group -->
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="subquestions">
+                            <label ><span class="">Select one option..</span>
+                                <select name=options class="form-control" required>
+                                    <option></option>
+                                    <option value=option_1>Option 1 (more fields to fill in)</option>
+                                    <option value=option_2>Option 2 (single field to fill in)</option>
+                                    <option  value=option_3>Option 3</option>
+                                </select>
+                           </label><br>
+                         </fieldset>
+                     </div>
+                     <div class="questiongroup " id=s1a__ID>
+                        <fieldset class="subquestions">
+                            <label ><span class="">9 numbers where last number is a checksum (one correct number is 123456788)</span>
+                                <input  class="form-control" type="text" id=checksum_number__ID name="checksum_number" placeholder="8 digit number" required ></label><br>
+                                <div id=alert_success__ID class="alert alert-success" >
+                                  <strong>Correct Number</strong>
+                                </div>
+                                <div id=alert_fail__ID class="alert alert-danger" >
+                                  <strong>Wrong Number! Please check</strong>
+                                </div>
+                         </fieldset>
+                     </div>
+                     <div class="questiongroup " id=s1b__ID>
+                        <fieldset class="subquestions">
+                            <label ><span class="">Option number (1 to 10)</span>
+                                <input  class="form-control" type="number" min=1 max=10 name="option_number" placeholder="Option Number" required >
+                            </label><br>
+                            <label ><span class="">Month/Year</span>
+                                <input  class="form-control" type="number" min=1 max=12 name="option_mm" placeholder="Month" required >
+                            </label>&nbsp;/&nbsp;<br>
+                            <label ><span class=""></span>
+                                <input  class="form-control" type="number"  name="option_yy" placeholder="Year" required >
+                            </label><br>
+                         </fieldset>
+                     </div>
+                     <div class="questiongroup " id=s2__ID>
+                        <fieldset class="subquestions">
+                            <label ><span class="">Option 2 (text input - any number or text)</span>
+                                <input class="form-control" type="text" name="any_number" placeholder="Any Number" required ></label><br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                            <label ><span class="">Name</span>
+                                <input class="form-control" type="text" name="name_input" placeholder="Name" required >
+                           </label><br>
+                           <label style="width:100%"><span class="">Address</span>
+                               <textarea class="form-control" name="address" placeholder="Address" required ></textarea>
+                           </label><br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                            <label class="checkboxes" >Tick if name and address as above
+                                <input type="checkbox" name="same" id=same__ID>
+                                <span class="check_checkmark"></span>
+                           </label><br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                            <label ><span class="">Name</span>
+                                <input class="form-control" type="text" name="name_input_2" id="name_input_2__ID" placeholder="Name" required >
+                           </label><br>
+                           <label style="width:100%" ><span class="">Address</span>
+                               <textarea class="form-control" name="address_2" id="address_2__ID" placeholder="Address" required ></textarea>
+                           </label><br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                            <label ><span class="">Document (Attach file by clicking on <i class="fa fa-paperclip"></i> below)</span>
+                           </label>
+                           <div id=File_Name__ID data-id=File_Name></div>
+                           <br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        //---------------------------------------------
+        $vm.open_link_v2=function(rid,filename,minutes){
+            var req={cmd:'get_s3_download_url',qid:$vm.qid,rid:rid,filename:filename,minutes:minutes};
+            $VmAPI.request({data:req,callback:function(res){
+                var link = document.createElement("a");
+                link.href = res.s3_download_url;
+                link.style = "visibility:hidden";
+                var fn=filename.split('-');
+                link.download = filename.replace(fn[0]+'-','').replace(/ /g,'_');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }});
+        }
+        //---------------------------------------------
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            VmInclude:__CURRENT_PATH__/task-form.js
+            //-------------------------------------
+            m.default_load=m.load;
+            m.load=function(){
+                m.default_load();
+                if(m.input.readonly!=undefined) $('#submit__ID').hide();
+                $vm.render_file_field_v2(m.input.record,'__ID',$('#File_Name__ID'));
+                $('#alert_success__ID').hide();
+                $('#alert_fail__ID').hide();
+                options_process();
+            }
+            //-------------------------------------
+            var options_process=function(){
+                $('#s1a__ID').hide(); $('#s1b__ID').hide(); $('#s2__ID').hide(); $('#s3__ID').hide();
+                $("#s1a__ID input").prop('disabled', true);
+                $("#s1b__ID input").prop('disabled', true);
+                $("#s2__ID input").prop('disabled', true);
+                $("#s3__ID input").prop('disabled', true);
+                var options = $("select[name='options']").val();
+                switch(options){
+                    case 'option_1':
+                        $('#s1a__ID').show(); $('#s1b__ID').show();
+                        $("#s1a__ID input").prop('disabled', false);
+                        $("#s1b__ID input").prop('disabled', false);
+                        break;
+                    case 'option_2':
+                        $('#s2__ID').show();
+                        $("#s2__ID input").prop('disabled', false);
+                        break;
+                    case 'option_3':
+                        $('#s3__ID').show();
+                        $("#s3__ID input").prop('disabled', false);
+                        break;
+                }
+            };
+            //--------------------------------------------------------
+            $('#same__ID').on('change',function(){
+              if($('#same__ID:checked').val()=='on'){
+                  $("#name_input_2__ID").prop("required",false);
+                  $("#address_2__ID").prop("required",false);
+              }
+              else{
+                  $("#name_input_2__ID").prop("required",true);
+                  $("#address_2__ID").prop("required",true);
+              }
+            })
+            $('#s1a__ID input[name=checksum_number').on('change',function(){
+               var mcn=$(this).val();
+               var mcn1=mcn.replace(/\s/g,'');
+               if(mcn1.length==9){
+                   var output = [];
+                   for (var i = 0; i< mcn1.length; i++) {output.push(+mcn1.charAt(i));}
+                   var checksum=(output[0]*1+output[1]*3+output[2]*7+output[3]*9+output[4]*1+output[5]*3+output[6]*7+output[7]*9)%10;
+                   if(checksum==parseInt(output[8])){
+                       $('#alert_success__ID').show();
+                       $('#alert_fail__ID').hide();
+                   }
+                   else{
+                       $('#alert_success__ID').hide();
+                       $('#alert_fail__ID').show();
+                   }
+               }
+              else {
+                  $('#alert_success__ID').hide();
+                  $('#alert_fail__ID').show();
+              }
+            })
+            //--------------------------------------------------------
+            var currentYear = (new Date).getFullYear();
+            $('#s1b__ID input[name=option_yy]').prop('min',currentYear).prop('max',currentYear+5);
+            //--------------------------------------------------------
+            $("select[name='options']").on('change',function(){
+              options_process();
+            })
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            /*background-color: #fff;*/
+            overflow:auto;
+        }
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>

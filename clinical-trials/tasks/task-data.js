@@ -2,6 +2,7 @@
 var prefix=$vm.module_list[$vm.vm['__ID'].name].prefix; if(prefix==undefined) prefix="";
 //-------------------------------------
 var participant_pid=$vm.module_list[prefix+'participant-data'].table_id;
+var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
 var notes_pid=$vm.module_list[prefix+'notes-data'].table_id;
 var participant_info=function(record){ /*if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID; */
     var p_field=m.participant_fields.split(',')
@@ -49,7 +50,7 @@ m.cell_render=function(records,I,field,td,set_value,source){
             var value=records[I][field];  if(value==="") value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
             td.html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
             td.find('u').on('click',function(){
-                $vm.load_module_v2(prefix+'edc-notes-data',$vm.root_layout_content_slot,{
+                $vm.load_module_v2(prefix+'notes-data',$vm.root_layout_content_slot,{
                     task_module_name:$vm.vm['__ID'].name,
                     record:records[I]
                 });
