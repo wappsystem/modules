@@ -42,6 +42,9 @@
     #D__ID input[type="radio"] {
         margin-right: 5px !important
     }
+    #D__ID .form-control::-webkit-input-placeholder{color:#ccc;}
+    #D__ID .form-control:-ms-input-placeholder{color:#ccc;}
+    #D__ID .form-control::-moz-placeholder{color:#ccc;opacity: 1;}
     #D__ID .formbox {
         background-color: white;
         padding: 0px !important;
@@ -111,6 +114,7 @@
     }
     /* RADIO BUTTONS */
     #D__ID .radiobuttons {
+        text-align:center;
         display: inline-block;
         position: relative;
         cursor: pointer;
@@ -133,6 +137,7 @@
         width: 22px;
         background-color: #C9C9C9;
         border-radius: 50%;
+        color:#fff;
     }
     #D__ID .radiobuttons:hover input ~ .checkmark {
         background-color: #506A88;
@@ -157,6 +162,10 @@
         height: 8px;
         border-radius: 50%;
         background: white !important;
+    }
+    #D__ID .container .checkmark.no-dot:after {
+        width: 0;
+        height: 0;
     }
     /* CHECK BOX */
     #D__ID .checkboxes {
@@ -230,6 +239,11 @@
       font-size: 16px;
       color: #6D6F72;
     }
+    #D__ID .form-group textarea {
+      font-family: 'Nunito Sans';
+      font-size: 16px;
+      color: #6D6F72;
+    }
     #D__ID fieldset.subquestions legend {
         font-family: 'Nunito Sans';
         font-size: 16px;
@@ -243,7 +257,40 @@
     #D__ID .form-group .questiongroup label.radiobuttons {
         margin-right: 10px;
     }
+    #D__ID .labelleft {
+        margin-left:-15px;
+    }
+    #D__ID .labelright {
+        margin-left:-15px;
+    }
     @media (min-width: 600px) {
-    #D__ID  fieldset.subquestions br { display: none; }
+        #D__ID  fieldset.subquestions br { display: none; }
+        #D__ID label {
+            margin-left:0;
+        }
+        #D__ID .labelleft {
+            margin-left:0;
+        }
+    }
+    #D__ID .form-group .questiongroup {
+        margin-left: 15px;
+    }
+    #D__ID .form-group .questiongroup label.radiobuttons {
+        margin-right: 10px;
+    }
+    #D__ID .labelleft {
+        margin-left:-15px;
+    }
+    #D__ID .labelright {
+        margin-left:-15px;
+    }
+    @media (min-width: 600px) {
+        #D__ID  fieldset.subquestions br { display: none; }
+        #D__ID label {
+            margin-left:0;
+        }
+        #D__ID .labelleft {
+            margin-left:0;
+        }
     }
 </style>
