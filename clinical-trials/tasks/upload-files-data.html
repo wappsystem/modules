@@ -1,0 +1,29 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__COMPONENT__/module/grid.v1.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="File_Name";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      m.cell_render=function(records,I,field,td,set_value,source){
+          switch(field){
+              case 'File_Name':
+                  VmInclude:__COMPONENT__/grid/field_file.js
+                  break;
+          }
+
+      }
+      //-------------------------------------
+  }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

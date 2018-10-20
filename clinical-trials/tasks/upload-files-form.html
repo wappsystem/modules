@@ -1,0 +1,85 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+        <!-- form container start -->
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+              <!-- form start -->
+              <form id="F__ID">
+                 <h3>File Upload</h3>
+                 <!-- participant part for all tsak forms -------------------->
+                 <div class="form-group">
+                    <fieldset class="subquestions">
+                        <label ><span class="">Participant</span>
+                            <input type=text name="Participant" class=form-control id=Participant__ID data-id="Participant" />
+                        </label><br>
+                        <label ><span class="">Participant ID</span>
+                            <input type=text name="Participant_uid" class=form-control readonly />
+                        </label>
+                     </fieldset>
+                 </div>
+                 <!-- form group -->
+                 <div class="form-group">
+                     <fieldset class="subquestions">
+                         <h4>This is an example how a file upload look like. This can be added into any form.</h4>
+                     </fieldset>
+                 </div>
+                 <div class="form-group">
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                            <label ><span class="">Document (Attach file by clicking on <i class="fa fa-paperclip"></i> below)</span>
+                           </label>
+                           <div id=File_Name__ID data-id=File_Name></div>
+                           <br>
+                         </fieldset>
+                     </div>
+                 </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        //---------------------------------------------
+        $vm.open_link_v2=function(rid,filename,minutes){
+            var req={cmd:'get_s3_download_url',qid:$vm.qid,rid:rid,filename:filename,minutes:minutes};
+            $VmAPI.request({data:req,callback:function(res){
+                var link = document.createElement("a");
+                link.href = res.s3_download_url;
+                link.style = "visibility:hidden";
+                var fn=filename.split('-');
+                link.download = filename.replace(fn[0]+'-','').replace(/ /g,'_');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }});
+        }
+        //---------------------------------------------
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            VmInclude:__CURRENT_PATH__/task-form.js
+            //-------------------------------------
+            m.default_load=m.load;
+            m.load=function(){
+                m.default_load();
+                if(m.input.readonly!=undefined) $('#submit__ID').hide();
+                $vm.render_file_field_v2(m.input.record,'__ID',$('#File_Name__ID'));
+            }
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            /*background-color: #fff;*/
+            overflow:auto;
+        }
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>

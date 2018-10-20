@@ -21,6 +21,11 @@
                      </fieldset>
                  </div>
                  <!---------------------------------------------------->
+                 <div class="form-group">
+                     <fieldset class="subquestions">
+                         <h4>Easy way to get a input form for text contructed. You give us just the labels (First Entry, Second Entry, Third Entry) and the form is ready to us.</h4>
+                     </fieldset>
+                 </div>
                  <!-- Form Inputs-------------------------------------->
                  <div id=dynamic_part__ID></div>
                  <!---------------------------------------------------->
@@ -37,7 +42,7 @@
         function F__ID(){
             //-------------------------------------
             var fields="First_Entry,Second_Entry,Third_Entry";
-            $('#header__ID').text("Generated text input eCRF form field names ");
+            $('#header__ID').text("Dynamically generated form from label names ");
             //-------------------------------------
             var fs=fields.split(',');
             var txt="";

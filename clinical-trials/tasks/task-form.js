@@ -46,6 +46,8 @@ m.load=function(){
         $("#F__ID input[name=Participant_uid]").val(participant_record.UID);
     }
     //--------------------------
+    if(m.load_2!=undefined) m.load_2();
+    //--------------------------
     var wait2=function(){
         $('#F__ID input[name=Participant]').prop('readonly',false);
         $('#F__ID input[name=Participant]').autocomplete( "enable" );
