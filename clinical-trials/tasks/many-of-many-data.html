@@ -1,18 +1,18 @@
 <div id=D__ID>
   <div>
-    VmInclude:__COMPONENT__/module/grid.v1.html
+      VmInclude:__COMPONENT__/module/grid.v1.html
   </div>
   <script>
-    function F__ID(){
+  function F__ID(){
       //-------------------------------------
       VmInclude:__COMPONENT__/module/grid.v1.js
       VmInclude:__CURRENT_PATH__/task-data.js
       //-------------------------------------
-      var fields="item_1";
+      var fields="option_1,option_2,option_3,option_4,option_5,option_6";
       m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
       m.form_fields="Participant_uid,Participant,"+fields;
       //-------------------------------------
-    }
+  }
   </script>
   <style>
     VmInclude:__COMPONENT__/module/grid.v1.css
