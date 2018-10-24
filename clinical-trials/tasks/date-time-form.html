@@ -8,7 +8,7 @@
             <div class="col-12">
               <!-- form start -->
               <form id="F__ID">
-                 <h3>Number input with Calculation</h3>
+                 <h3>Date and Time input</h3>
                  <!-- participant part for all tsak forms -------------------->
                  <div class="form-group">
                     <fieldset class="subquestions">
@@ -24,8 +24,8 @@
                  <div class="form-group">
      				 <div class="questiongroup ">
                         <fieldset class="">
-                           <label ><span class="">Weight (kg).</span>
-                               <input class="form-control" type="number" min=40 max=300 name="weight" id=weight__ID placeholder="Weight (kg)" >
+                           <label ><span class="">Date</span>
+                               <input class="form-control" type="date"  name="date"  >
                            </label><br>
                          </fieldset>
                      </div>
@@ -33,17 +33,8 @@
                  <div class="form-group">
      				 <div class="questiongroup ">
                         <fieldset class="">
-                           <label ><span class="">Height (cm).</span>
-                               <input class="form-control" type="number" name="height" id=height__ID min=120 max=250 placeholder="Height (cm)" >
-                           </label><br>
-                         </fieldset>
-                     </div>
-                 </div>
-                 <div class="form-group">
-     				 <div class="questiongroup ">
-                        <fieldset class="">
-                           <label ><span class="">BMI</span>
-                               <input class="form-control" type="text" name="bmi" id=bmi__ID readonly >
+                           <label ><span class="">Time</span>
+                               <input class="form-control" type="time" name="time" >
                            </label><br>
                          </fieldset>
                      </div>
@@ -62,16 +53,6 @@
             VmInclude:__COMPONENT__/module/form.v1.js
             VmInclude:__CURRENT_PATH__/task-form.js
             //-------------------------------------
-            $('#weight__ID').on('keyup',function(){
-                if($('#height__ID').val()!=='' || $('#height__ID').val()!==undefined || $('#weight__ID').val()!=='' || $('#weight__ID').val()!==undefined){
-                    $('#bmi__ID').val((parseFloat($('#weight__ID').val())/(parseFloat($('#height__ID').val())*parseFloat($('#height__ID').val()))*10000).toFixed(1))
-                }
-            })
-            $('#height__ID').on('keyup',function(){
-                if($('#height__ID').val()!=='' || $('#height__ID').val()!==undefined || $('#weight__ID').val()!=='' || $('#weight__ID').val()!==undefined){
-                    $('#bmi__ID').val((parseFloat($('#weight__ID').val())/(parseFloat($('#height__ID').val())*parseFloat($('#height__ID').val()))*10000).toFixed(1))
-                }
-            })
         }
     </script>
     <style>

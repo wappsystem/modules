@@ -1,0 +1,47 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__COMPONENT__/module/grid.v1.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="date,time";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      m.cell_render=function(records,I,field,td,set_value,source){
+          switch(field){
+              case 'S3':
+                  records[I].vm_custom[field]=true;
+                  td.html("<span style='color:"+records[I][field]+"'>&#x25cf;</span>");
+                  break;
+              case 'NT':
+                  records[I].vm_custom[field]=true;
+                  if(m.records[I].UID===undefined) return;
+                  var color=records[I].NC;     if(color==="") color="#000000"
+                  var value=records[I][field];  if(value==="") value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                  td.html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
+                  td.find('u').on('click',function(){
+                      $vm.load_module_v2(prefix+'notes-data',$vm.root_layout_content_slot,{
+                          task_module_name:$vm.vm['__ID'].name,
+                          record:records[I]
+                      });
+                  });
+                  break;
+              case 'Participant_uid':
+              case 'Participant':
+              case 'date':
+              case 'time':
+                  records[I].vm_readonly[field]=true;
+                  break;
+      }
+  }
+}
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

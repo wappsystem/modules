@@ -1,0 +1,203 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+      <div class="row" >
+        <!-- form container start -->
+        <div class="col-12 col-lg-7 col-md-11 col-sm-12 mx-auto formbox">
+          <div class="row">
+            <div class="col-12">
+              <!-- form start -->
+              <form id="F__ID">
+                 <h3>Digital Scale</h3>
+                 <!-- participant part for all tsak forms -------------------->
+                 <div class="form-group">
+                    <fieldset class="subquestions">
+                        <label ><span class="">Participant</span>
+                            <input type=text name="Participant" class=form-control id=Participant__ID data-id="Participant" required/>
+                        </label><br>
+                        <label ><span class="">Participant ID</span>
+                            <input type=text name="Participant_uid" class=form-control readonly />
+                        </label>
+                     </fieldset>
+                 </div>
+                 <!-- form group -->
+                 <div class="form-group">
+                     <h4>Question 1</h4>
+     				<div class="questiongroup ">
+                         <fieldset class="subquestions">
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="0" required>
+                               <span class="checkmark no-dot">0</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="1">
+                               <span class="checkmark no-dot">1</span>
+                           </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="2">
+                               <span class="checkmark no-dot">2</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="3">
+                               <span class="checkmark no-dot">3</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="4">
+                               <span class="checkmark no-dot">4</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="5">
+                               <span class="checkmark no-dot">5</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="6">
+                               <span class="checkmark no-dot">6</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="7">
+                               <span class="checkmark no-dot">7</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="8">
+                               <span class="checkmark no-dot">8</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="9">
+                               <span class="checkmark no-dot">9</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_1" value="10">
+                               <span class="checkmark no-dot">10</span>
+                             </label>
+                         </fieldset>
+                         <br>
+                    </div>
+                 </div>
+                 <div class="form-group">
+                     <h4>Question 2</h4>
+     				<div class="questiongroup ">
+                         <fieldset class="subquestions">
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="0" required>
+                               <span class="checkmark no-dot">0</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="1">
+                               <span class="checkmark no-dot">1</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="2">
+                               <span class="checkmark no-dot">2</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="3">
+                               <span class="checkmark no-dot">3</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="4">
+                               <span class="checkmark no-dot">4</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="5">
+                               <span class="checkmark no-dot">5</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="6">
+                               <span class="checkmark no-dot">6</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="7">
+                               <span class="checkmark no-dot">7</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="8">
+                               <span class="checkmark no-dot">8</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="9">
+                               <span class="checkmark no-dot">9</span>
+                             </label><br>
+                             <label class="radiobuttons">
+                               <input type="radio" name="Question_2" value="10">
+                               <span class="checkmark no-dot">10</span>
+                             </label>
+                         </fieldset>
+                         <br>
+                    </div>
+                 </div>
+                 <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        //---------------------------------------------
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:__COMPONENT__/module/form.v1.js
+            VmInclude:__CURRENT_PATH__/task-form.js
+            //-------------------------------------
+            m.load=function(){
+                m.input=$vm.vm['__ID'].input; if(m.input==undefined) m.input={};
+                $('#F__ID')[0].reset();
+                $('#submit__ID').show();
+                var grid_record=m.input.record;
+                $('#delete__ID').hide(); if(grid_record!=undefined && grid_record.ID!==undefined) $('#delete__ID').show();
+                $vm.deserialize(grid_record,'#F__ID');
+                $('<style>#Question_1_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 0px; height: 0px; background: #4CAF50; cursor: pointer; }</style>').appendTo('head');
+                $('<style>#Question_2_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 0px; height: 0px; background: #4CAF50; cursor: pointer; }</style>').appendTo('head');
+            }
+            //-------------------------------
+            $('#Question_1__ID').on('click',function(){
+                $('<style>#Question_1_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 5px; height: 25px; background: #EA7859; cursor: pointer; }</style>').appendTo('head');
+                $('#Question_1_req__ID').val("OK")
+            })
+            //-------------------------------
+            $('#Question_2__ID').on('click',function(){
+                $('<style>#Question_2_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 5px; height: 25px; background: #EA7859; cursor: pointer; }</style>').appendTo('head');
+                $('#Question_2_req__ID').val("OK")
+            })
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            animation: vm_module_fadein 1.0s;
+            /*background-color: #fff;*/
+            overflow:auto;
+        }
+        #D__ID .slidecontainer {
+            width: 100%; /* Width of the outside container */
+        }
+
+        /* The slider itself */
+        #D__ID .slider {
+            -webkit-appearance: none;  /* Override default CSS styles */
+            appearance: none;
+            width: 100%; /* Full-width */
+            height: 10px; /* Specified height */
+            background: #d3d3d3; /* Grey background */
+            outline: none; /* Remove outline */
+            opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+            -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+            transition: opacity .2s;
+        }
+
+        /* Mouse-over effects */
+        #D__ID .slider:hover {
+            opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+        #D__ID .slider::-moz-range-thumb {
+            width: 25px; /* Set a specific slider handle width */
+            height: 25px; /* Slider handle height */
+            background: #4CAF50; /* Green background */
+            cursor: pointer; /* Cursor on hover */
+        }
+
+    </style>
+    VmInclude:__CURRENT_PATH__/task-form.css
+</div>
