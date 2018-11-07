@@ -7,6 +7,8 @@ var notes_pid=$vm.module_list[prefix+'notes-data'].table_id;
 var participant_info=function(record){ /*if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID; */
     var p_field=m.participant_fields.split(',')}
 //-------------------------------------
+$vm.load_component('https://modules.wappsystem.com.au/clinical-trials/components/help.html','section_help__ID');
+//-------------------------------------
 m.set_req=function(){
     var participant_where="";
     var participant_uid="";
