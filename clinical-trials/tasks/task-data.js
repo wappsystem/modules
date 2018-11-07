@@ -5,8 +5,7 @@ var participant_pid=$vm.module_list[prefix+'participant-data'].table_id;
 var participant_tid =$vm.module_list[m.prefix+'participant-data'].table_id;
 var notes_pid=$vm.module_list[prefix+'notes-data'].table_id;
 var participant_info=function(record){ /*if(record.Subject_Initials!=undefined) return record.Subject_Initials+' '+record.DOB; else return record.UID; */
-    var p_field=m.participant_fields.split(',')
-    alert(p_field.length)}
+    var p_field=m.participant_fields.split(',')}
 //-------------------------------------
 m.set_req=function(){
     var participant_where="";

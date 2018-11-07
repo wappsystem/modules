@@ -94,7 +94,6 @@
                 return;
             }
             $('#Participant_uid__ID').val(participant_record.UID);
-            $('#Participant__ID').val(get_participant_name(participant_record));
             var sql="select top 1 ID,Information from [TABLE-"+setup_pid+"] where PUID="+participant_record.UID;
             var req_data={ cmd:"read",qid:$vm.qid,sql:sql}
             $VmAPI.request({data:req_data,callback:function(res){
@@ -107,6 +106,7 @@
                     $('#F__ID input[name=Login_ID]').val(participant_record.UID+"-"+form_tid);
                     $('#F__ID input[name=Password').val($vm.vm_password(8,false));
                 }
+                $('#Participant__ID').val(get_participant_name(participant_record));
 				set_check_list();
             }})
         }
@@ -213,7 +213,8 @@
             }
             $VmAPI.request({data:req,callback:function(res){
                 $vm.refresh=1;
-                if(rid!=undefined) window.history.go(-1);
+                //if(rid!=undefined) window.history.go(-1);
+                window.history.go(-1);
             }});
         })
         //--------------------------------------------------------

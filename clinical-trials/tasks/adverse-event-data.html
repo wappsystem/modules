@@ -1,0 +1,91 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__COMPONENT__/module/grid.v1.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="Adverse_Event,Onset_Date,Onset_Time,Resolution_Date,Resolution_Time,Was AE Serious?|Serious_AE,Intensity,Frequency,Treatment_Required,Other_Treatment,Outcome";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      m.cell_render=function(records,I,field,td,set_value,source){
+          switch(field){
+              case 'S3':
+                  records[I].vm_custom[field]=true;
+                  td.html("<span style='color:"+records[I][field]+"'>&#x25cf;</span>");
+                  break;
+              case 'NT':
+                  records[I].vm_custom[field]=true;
+                  if(m.records[I].UID===undefined) return;
+                  var color=records[I].NC;     if(color==="") color="#000000"
+                  var value=records[I][field];  if(value==="") value='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+                  td.html("<u style='cursor:pointer;color:"+color+"'>"+value+"</u>");
+                  td.find('u').on('click',function(){
+                      $vm.load_module_v2(prefix+'notes-data',$vm.root_layout_content_slot,{
+                          task_module_name:$vm.vm['__ID'].name,
+                          record:records[I]
+                      });
+                  });
+                  break;
+              case 'Participant_uid':
+              case 'Participant':
+                  records[I].vm_readonly[field]=true;
+                  break;
+              case 'Serious_AE':
+              var html="<select style='border:0;''>\
+                      <option></option>\
+                      <option>Yes</option>\
+                      <option>No</option>\
+                      </select>\
+                      ";
+                  break;
+              case 'Intensity':
+                      var html="<select style='border:0;''>\
+                              <option>Mild</option>\
+                              <option>Moderate</option>\
+                              <option>Severe</option>\
+                          </select>\
+                      ";
+                      VmInclude:__COMPONENT__/grid/field_select.js
+                  break;
+              case 'Frequency':
+                      var html="<select style='border:0;''>\
+                              <option>Single continuous episode</option>\
+                              <option>Intermittent</option>\
+                              </select>\
+                      ";
+                      VmInclude:__COMPONENT__/grid/field_select.js
+                  break;
+              case 'Treatment_Required':
+                      var html="<select style='border:0;''>\
+                              <option>None</option>\
+                              <option>Concomitant Medication</option>\
+                              <option>Non-drug Tx</option>\
+                              <option>Hospitalization</option>\
+                              <option>Other (specify)</option>\
+                          </select>\
+                      ";
+                      VmInclude:__COMPONENT__/grid/field_select.js
+                  break;
+              case 'Outcome':
+                      var html="<select style='border:0;''>\
+                              <option>Resolved with no Sequelae</option>\
+                              <option>Resolved with Sequelae</option>\
+                              <option>Continuing</option>\
+                              <option>Fatal</option>\
+                              <option>Unknown</option>\
+                          </select>\
+                      ";
+                      VmInclude:__COMPONENT__/grid/field_select.js
+                  break;
+          }
+       }
+    }
+</script>
+<style>
+  VmInclude:__COMPONENT__/module/grid.v1.css
+</style>

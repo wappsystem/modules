@@ -8,7 +8,7 @@
             <div class="col-12">
               <!-- form start -->
               <form id="F__ID">
-                 <h3>File Upload</h3>
+                 <h3>Number input with Calculation</h3>
                  <!-- participant part for all tsak forms -------------------->
                  <div id="participant_div__ID">
                      <div class="form-group">
@@ -24,17 +24,20 @@
                  </div>
                  <!-- form group -->
                  <div class="form-group">
-                     <fieldset class="subquestions">
-                         <h4>This is an example how a file upload look like. This can be added into any form.</h4>
-                     </fieldset>
+     				 <div class="questiongroup ">
+                        <fieldset class="">
+                           <label ><span class="">Weight (kg) Min=40 Max=300.</span>
+                               <input class="form-control" type="number" min=40 max=300 name="weight" id=weight__ID placeholder="Weight (kg)" >
+                           </label><br>
+                         </fieldset>
+                     </div>
                  </div>
                  <div class="form-group">
      				 <div class="questiongroup ">
                         <fieldset class="">
-                            <label ><span class="">Document (Attach file by clicking on <i class="fa fa-paperclip"></i> below)</span>
-                           </label>
-                           <div id=File_Name__ID data-id=File_Name></div>
-                           <br>
+                           <label ><span class="">Height (cm) Min=120 Max=250</span>
+                               <input class="form-control" type="number" name="height" id=height__ID min=120 max=250 placeholder="Height (cm)" >
+                           </label><br>
                          </fieldset>
                      </div>
                  </div>
@@ -47,31 +50,10 @@
     </div>
     <script>
         //---------------------------------------------
-        $vm.open_link_v2=function(rid,filename,minutes){
-            var req={cmd:'get_s3_download_url',qid:$vm.qid,rid:rid,filename:filename,minutes:minutes};
-            $VmAPI.request({data:req,callback:function(res){
-                var link = document.createElement("a");
-                link.href = res.s3_download_url;
-                link.style = "visibility:hidden";
-                var fn=filename.split('-');
-                link.download = filename.replace(fn[0]+'-','').replace(/ /g,'_');
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }});
-        }
-        //---------------------------------------------
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/module/form.v1.js
             VmInclude:__CURRENT_PATH__/task-form.js
-            //-------------------------------------
-            m.default_load=m.load;
-            m.load=function(){
-                m.default_load();
-                if(m.input.readonly!=undefined) $('#submit__ID').hide();
-                $vm.render_file_field_v2(m.input.record,'__ID',$('#File_Name__ID'));
-            }
             //-------------------------------------
         }
     </script>

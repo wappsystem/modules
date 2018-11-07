@@ -65,7 +65,11 @@
                         $vm.user_id=res.user_id;
     					$('#vm_username').text('Signed in as '+username);
                         $VmAPI.set_token(res.token,'');
-                        if(res.S1!=undefined) $vm.g_participant=res.S1;
+						var p=""
+                        if(res.S1!=undefined) p=res.S1;
+						if(res.S2!="" && res.S2!=undefined) p+=" "+res.S2;
+						if(res.S3!="" && res.S3!=undefined) p+=" "+res.S3;
+						$vm.g_participant=p;
     					$vm.g_task_list=res.List;
 
                         var x = document.getElementById("vm_signout");

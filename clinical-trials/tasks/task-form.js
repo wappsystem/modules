@@ -55,6 +55,9 @@ m.load=function(){
             $('#F__ID input[name=Participant]').prop('readonly',true);
             $('#F__ID input[name=Participant]').autocomplete( "disable" );
         }
+        if(task_record.quest!==undefined){
+            $('#participant_div__ID').hide();
+        }
     }
     //--------------------------
     var I2=0, loop_2=setInterval(function (){
