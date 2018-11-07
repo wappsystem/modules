@@ -1,6 +1,6 @@
 <div id=D__ID>
   <div>
-      VmInclude:__COMPONENT__/module/grid.v1.html
+      VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
   </div>
   <script>
   function F__ID(){
@@ -11,6 +11,8 @@
       var fields="weight,height";
       m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
       m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      $('#title__ID').text('Number min/max inputs')
       //-------------------------------------
       m.cell_render=function(records,I,field,td,set_value,source){
           switch(field){
