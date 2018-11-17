@@ -69,13 +69,18 @@ m.load=function(){
         I2++; if(I2>50){ clearInterval(loop_2); alert("jquery-ui.min.js is not installed.");}
     },100);
     //-------------------------------------
+
 }
 //-------------------------------------
 m.before_submit=function(record,dbv){
    if(record.Participant_uid!=""){
        dbv.PUID=record.Participant_uid;
        dbv.S3=$vm.status_of_data(record);
+       return true;
    }
-   return true;
+   else{
+       $vm.alert('Please select a participant');
+       return false;
+   }
 };
 //-------------------------------------
