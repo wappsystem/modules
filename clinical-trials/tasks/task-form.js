@@ -24,7 +24,14 @@ m.load=function(){
     $('#F__ID')[0].reset();
     $('#submit__ID').show();
     var task_record=m.input.record;
+    //alert(JSON.stringify(task_record));
     $vm.deserialize(task_record,'#F__ID');
+    //--------------------------
+    if(task_record!==undefined){
+        if(task_record.quest!==undefined){
+            $('#participant_div__ID').hide();
+        }
+    }
     //--------------------------
     //from new or questionnaire
     var participant_record=m.input.participant_record;
@@ -54,9 +61,6 @@ m.load=function(){
         if($("#F__ID input[name=Participant_uid]").val()!=''){
             $('#F__ID input[name=Participant]').prop('readonly',true);
             $('#F__ID input[name=Participant]').autocomplete( "disable" );
-        }
-        if(task_record.quest!==undefined){
-            $('#participant_div__ID').hide();
         }
     }
     //--------------------------

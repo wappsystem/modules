@@ -17,8 +17,14 @@
       m.cell_render=function(records,I,field,td,set_value,source){
           switch(field){
               case 'File_Name':
-                  VmInclude:__COMPONENT__/grid/field_file.js
-                  break;
+              records[I].vm_custom[field]=true;
+              if(records[I][field]!=undefined && records[I][field]!=""){
+                  td.html("<u style='cursor:pointer'>"+records[I][field]+"</u>");
+                  td.find('u').on('click',function(){
+                      $vm.open_link_v2(records[I].ID,records[I][field],5);
+                  })
+              }
+              break;
           }
 
       }
