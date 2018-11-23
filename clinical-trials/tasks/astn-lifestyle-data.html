@@ -1,0 +1,33 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="general_health,physical_activity,smoke,smoke_regular,smoke_stop,smoke_age,smoke_per_day,alcohol,alcohol_standard_wd,alcohol_standard_nwd,caffeine,caffeine_wd,caffeine_nwd,caffeine_bed_wd,caffeine_bed_nwd";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('One of many choice - Standard')
+      //-------------------------------------
+      m.before_submit_1=m.before_submit;
+      m.before_submit=function(record,dbv){
+          m.before_submit_1(record,dbv);
+          m.before_submit_2(record,dbv);
+      }
+      m.before_submit_2=function(record,dbv){
+          record.ISI=(parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
+          record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

@@ -76,7 +76,11 @@ m.before_submit=function(record,dbv){
    if(record.Participant_uid!=""){
        dbv.PUID=record.Participant_uid;
        dbv.S3=$vm.status_of_data(record);
-       return true;
+       if(m.before_submit_2!=undefined) {
+          if(m.before_submit_2()) return true;
+          else return false;
+       }
+       else return true;
    }
    else{
        $vm.alert('Please select a participant');

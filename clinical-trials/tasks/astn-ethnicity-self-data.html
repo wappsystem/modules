@@ -1,0 +1,22 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="ethnicity_0,ethnicity_1,ethnicity_2,ethnicity_3,ethnicity_4,ethnicity_5,ethnicity_6,ethnicity_7,ethnicity_8,ethnicity_9,ethnicity_10,ethnicity_11,ethnicity_other,COB";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      $('#title__ID').text('Many of many choises')
+      //-------------------------------------
+  }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
