@@ -1,20 +1,20 @@
 <div id=D__ID>
   <div>
-      VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
   </div>
   <script>
-  function F__ID(){
+    function F__ID(){
       //-------------------------------------
       VmInclude:__COMPONENT__/module/grid.v1.js
       VmInclude:__CURRENT_PATH__/task-data.js
       //-------------------------------------
-      var fields="ethnicity_0,ethnicity_1,ethnicity_2,ethnicity_3,ethnicity_4,ethnicity_5,ethnicity_6,ethnicity_7,ethnicity_8,ethnicity_9,ethnicity_10,ethnicity_11,ethnicity_other,COB";
+      var fields="father_diagnosed,father_OSA,father_insomn,father_narco,father_RLS,father_brux,father_RBD,father_para,father_hypo,father_DSPD,mother_diagnosed,mother_OSA,mother_insomn,mother_narco,mother_RLS,mother_brux,mother_RBD,mother_para,mother_hypo,mother_DSPD";
       m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-      m.form_fields="Participant_uid,Participant,"+fields;
+      m.form_fields=fields;
       //-------------------------------------
-      $('#title__ID').text('Ethnicity Self')
+      $('#title__ID').text('Family Sleep History')
       //-------------------------------------
-  }
+    }
   </script>
   <style>
     VmInclude:__COMPONENT__/module/grid.v1.css
