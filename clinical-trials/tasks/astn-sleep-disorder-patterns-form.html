@@ -1792,7 +1792,7 @@
                     $("input[name='OSA_other_reguse']").prop('checked',false);
                     $("input[name='OSA_other_reguse']").prop('required',false);
                     $("input[name='OSA_other_no']").val('');
-                    $("input[name='OSA_other_no']").prop('required',false);                    
+                    $("input[name='OSA_other_no']").prop('required',false);
                 }
             });
             //-------------------------------------
@@ -2270,6 +2270,103 @@
                     $("input[name='insom_other_no']").val('');
                 }
             });
+            //-------------------------------------
+            $("input[name='insom_psychologist_reguse']").on('click', function(){
+                if($("input[name='insom_psychologist_reguse']:checked").val()=='0'){
+                    $('#insom_psychologist_wn__ID').show();
+                    $("input[name='insom_psychologist_reguse']").prop('required',true);
+                }
+                else {
+                    $('#insom_psychologist_wn__ID').hide();
+                    $("input[name='insom_psychologist_no']").prop('required',false);
+                    $("input[name='insom_psychologist_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_psychiatrist_reguse']").on('click', function(){
+                if($("input[name='insom_psychiatrist_reguse']:checked").val()=='0'){
+                    $('#insom_psychiatrist_wn__ID').show();
+                    $("input[name='insom_psychiatrist_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_psychiatrist_wn__ID').hide();
+                    $("input[name='insom_psychiatrist_no']").prop('required',false);
+                    $("input[name='insom_psychiatrist_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_life_reguse']").on('click', function(){
+                if($("input[name='insom_life_reguse']:checked").val()=='0'){
+                    $('#insom_life_wn__ID').show();
+                    $("input[name='insom_life_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_life_wn__ID').hide();
+                    $("input[name='insom_life_no']").prop('required',false);
+                    $("input[name='insom_life_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_med_reguse']").on('click', function(){
+                if($("input[name='insom_med_reguse']:checked").val()=='0'){
+                    $('#insom_med_wn__ID').show();
+                    $("input[name='insom_med_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_med_wn__ID').hide();
+                    $("input[name='insom_med_no']").prop('required',false);
+                    $("input[name='insom_med_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_npresmed_reguse']").on('click', function(){
+                if($("input[name='insom_npresmed_reguse']:checked").val()=='0'){
+                    $('#insom_npresmed_wn__ID').show();
+                    $("input[name='insom_npresmed_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_npresmed_wn__ID').hide();
+                    $("input[name='insom_npresmed_no']").prop('required',false);
+                    $("input[name='insom_npresmed_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_complement_reguse']").on('click', function(){
+                if($("input[name='insom_complement_reguse']:checked").val()=='0'){
+                    $('#insom_complement_wn__ID').show();
+                    $("input[name='insom_complement_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_complement_wn__ID').hide();
+                    $("input[name='insom_complement_no']").prop('required',false);
+                    $("input[name='insom_complement_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_relax_reguse']").on('click', function(){
+                if($("input[name='insom_relax_reguse']:checked").val()=='0'){
+                    $('#insom_relax_wn__ID').show();
+                    $("input[name='insom_relax_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_relax_wn__ID').hide();
+                    $("input[name='insom_relax_no']").prop('required',false);
+                    $("input[name='insom_relax_no']").val('');
+                }
+            });
+            //-------------------------------------
+            $("input[name='insom_other_reguse']").on('click', function(){
+                if($("input[name='insom_other_reguse']:checked").val()=='0'){
+                    $('#insom_other_wn__ID').show();
+                    $("input[name='insom_other_no']").prop('required',true);
+                }
+                else {
+                    $('#insom_other_wn__ID').hide();
+                    $("input[name='insom_other_no']").prop('required',false);
+                    $("input[name='insom_other_no']").val('');
+                }
+            });
+
             //-------------------------------------
             $("input[name='diagnosis_narco']").on('click', function(){
                 if($("input[name='diagnosis_narco']").is(":checked")==true || $("input[name='diagnosis_RLS']").is(":checked")==true || $("input[name='diagnosis_brux']").is(":checked")==true || $("input[name='diagnosis_REM']").is(":checked")==true || $("input[name='diagnosis_paras']").is(":checked")==true || $("input[name='diagnosis_hypo']").is(":checked")==true || $("input[name='diagnosis_DSPD']").is(":checked")==true) {
