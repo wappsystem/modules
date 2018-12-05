@@ -65,10 +65,19 @@ m.cell_render=function(records,I,field,td,set_value,source){
 }
 //-------------------------------------
 m.before_submit=function(record,dbv){
-    dbv.PPID=participant_tid;
-	dbv.S3=$vm.status_of_data(m.row_data(record));
-    if(record.Participant_uid!==undefined) dbv.PUID=record.Participant_uid;
-    return true;
+    if(record.Participant_uid!=""){
+        dbv.PUID=record.Participant_uid;
+        dbv.S3=$vm.status_of_data(record);
+        if(m.before_submit_2!=undefined) {
+           if(m.before_submit_2(record,dbv)) return true;
+           else return false;
+        }
+        else return true;
+    }
+    else{
+        $vm.alert('Please select a participant');
+        return false;
+    }
 }
 //-------------------------------------
 m.new=function(){

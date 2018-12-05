@@ -77,7 +77,7 @@ m.before_submit=function(record,dbv){
        dbv.PUID=record.Participant_uid;
        dbv.S3=$vm.status_of_data(record);
        if(m.before_submit_2!=undefined) {
-          if(m.before_submit_2()) return true;
+          if(m.before_submit_2(record,dbv)) return true;
           else return false;
        }
        else return true;

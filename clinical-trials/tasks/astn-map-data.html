@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="MAP_1,MAP_2,MAP_3,MAP";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Multivariable Apnea Predictor')
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+          //record.ESS=(parseInt(record.ESS_1)+parseInt(record.ESS_2)+parseInt(record.ESS_3)+parseInt(record.ESS_4)+parseInt(record.ESS_5)+parseInt(record.ESS_6)+parseInt(record.ESS_7)+parseInt(record.ESS_8)).toString();
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
