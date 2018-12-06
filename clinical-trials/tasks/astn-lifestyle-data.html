@@ -14,16 +14,9 @@
       //-------------------------------------
       $('#title__ID').text('Lifestyle')
       //-------------------------------------
-      m.before_submit_1=m.before_submit;
-      m.before_submit=function(record,dbv){
-          m.before_submit_1(record,dbv);
-          m.before_submit_2(record,dbv);
-      }
-      m.before_submit_2=function(record,dbv){
-          record.ISI=(parseInt(record.ISI_2)+parseInt(record.ISI_3)+parseInt(record.ISI_4)+parseInt(record.ISI_5)+parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
-          record.ISI_1=(parseInt(record.ISI_1a)+parseInt(record.ISI_1b)+parseInt(record.ISI_1c)).toString();
-          return true;
-      }
+//      m.before_submit_2=function(record,dbv){
+//          return true;
+//      }
       //-------------------------------------
     }
   </script>
