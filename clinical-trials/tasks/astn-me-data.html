@@ -1,0 +1,28 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/module/grid.v1.js
+        VmInclude:__CURRENT_PATH__/task-data.js
+        //-------------------------------------
+        var fields="ME_1,ME_2,ME_3,ME_4,ME_5,ME_6,ME_7,ME_8,ME_9,ME_10,ME_11,ME_12,ME_13,ME";
+        m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+        m.form_fields=fields;
+        //-------------------------------------
+        $('#title__ID').text('Horne & Ostberg Morningness-Eveningness Composite Questionnaire')
+        //-------------------------------------
+        m.before_submit_2=function(record,dbv){
+            record.ME=(parseInt(record.ME_1)+parseInt(record.ME_2)+parseInt(record.ME_3)+parseInt(record.ME_4)+parseInt(record.ME_5)+parseInt(record.ME_6)+parseInt(record.ME_7)+parseInt(record.ME_8)+parseInt(record.ME_9)+parseInt(record.ME_10)+parseInt(record.ME_11)+parseInt(record.ME_12)+parseInt(record.ME_13)).toString();
+            return true;
+        }
+        //-------------------------------------
+}
+
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

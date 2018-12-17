@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="PHQ_1,PHQ_2,PHQ_3,PHQ_4,PHQ_5,PHQ_6,PHQ_7,PHQ_8,PHQ_9,PHQ";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Patient Health Questionnaire')
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+          record.PHQ=(parseInt(record.PHQ_1)+parseInt(record.PHQ_2)+parseInt(record.PHQ_3)+parseInt(record.PHQ_4)+parseInt(record.PHQ_5)+parseInt(record.PHQ_6)+parseInt(record.PHQ_7)+parseInt(record.PHQ_8)+parseInt(record.PHQ_9)).toString();
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

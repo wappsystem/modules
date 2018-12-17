@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="GAD_1,GAD_2,GAD_3,GAD_4,GAD_5,GAD_6,GAD_7,GAD";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Generalised Anxiety Disorder')
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+          record.GAD=(parseInt(record.GAD_1)+parseInt(record.GAD_2)+parseInt(record.GAD_3)+parseInt(record.GAD_4)+parseInt(record.GAD_5)+parseInt(record.GAD_6)+parseInt(record.GAD_7)).toString();
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

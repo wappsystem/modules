@@ -1,0 +1,70 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="FOSQ_1,FOSQ_2,FOSQ_3,FOSQ_4,FOSQ_5,FOSQ_6,FOSQ_7,FOSQ_8,FOSQ_9,FOSQ_10,FOSQ";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Funtional Outcomes of Sleep Questionnaire (FOSQ)')
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+          var v1=parseFloat(record.FOSQ_1);
+      	  var v2=parseFloat(record.FOSQ_2);
+      	  var v3=parseFloat(record.FOSQ_3);
+      	  var v4=parseFloat(record.FOSQ_4);
+      	  var v5=parseFloat(record.FOSQ_5);
+      	  var v6=parseFloat(record.FOSQ_6);
+      	  var v7=parseFloat(record.FOSQ_7);
+      	  var v8=parseFloat(record.FOSQ_8);
+      	  var v9=parseFloat(record.FOSQ_9);
+      	  var v10=parseFloat(record.FOSQ_10);
+          var v31=0.0;
+          var vmean=0.0;
+          var vgp=0.0;
+          if(v1>0) vmean++;
+          if(v2>0) vmean++;
+          if(vmean>0) vgp=(v1+v2)/vmean;
+          vmean=0;
+          var vv=0;
+          if(v3>0) vmean++;
+          if(v4>0) vmean++;
+          if(v7>0) vmean++;
+          if(vmean>0) vv=(v3+v4+v7)/vmean;
+          vmean=0;
+          var vso=0;
+          if(v5>0) vmean++;
+          if(vmean>0) vso=(v5)/vmean;
+          vmean=0;
+          var val=0;
+          if(v6>0) vmean++;
+          if(v8>0) vmean++;
+          if(v9>0) vmean++;
+          if(vmean>0) val=(v6+v8+v9)/vmean;
+          vmean=0;
+          var vis=0;
+          if(v10>0) vmean++;
+          if(vmean>0) vis=(v10)/vmean;
+          vmean=0;
+          if(vgp>0) vmean++;
+          if(vv>0) vmean++;
+          if(vso>0) vmean++;
+          if(val>0) vmean++;
+          if(vis>0) vmean++;
+          if(vmean>0) v31=(vgp+vv+vso+val+vis)/vmean*5;
+      	  record.FOSQ=v31.toFixed(2);
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
