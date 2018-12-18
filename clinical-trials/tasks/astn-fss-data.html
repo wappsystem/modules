@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="FSS_1,FSS_2,FSS_3,FSS_4,FSS_5,FSS_6,FSS_7,FSS_8,FSS_9,FSS";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Fatigue Severity Scale')
+      //-------------------------------------
+       m.before_submit_2=function(record,dbv){
+           record.FSS=((parseFloat(record.FSS_1)+parseFloat(record.FSS_2)+parseFloat(record.FSS_3)+parseFloat(record.FSS_4)+parseFloat(record.FSS_5)+parseFloat(record.FSS_6)+parseFloat(record.FSS_7)+parseFloat(record.FSS_8)+parseFloat(record.FSS_9))/9).toFixed(2);
+           return true;
+       }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
