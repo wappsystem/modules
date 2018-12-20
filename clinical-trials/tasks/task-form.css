@@ -43,6 +43,12 @@
         letter-spacing: 0;
         line-height: 28px;
     }
+    #D__ID .small-label {
+        font-family: 'Nunito Sans';
+        font-weight:600;
+        font-size: 14px;
+        color: #444645;
+    }
     #D__ID label {
         font-family: 'Nunito Sans';
         font-weight:600;

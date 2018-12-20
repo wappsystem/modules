@@ -1,0 +1,26 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="SDS_1,SDS1CB,SDS_2,SDS_3,SDS_4,SDS_5";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Sheehan Disability Scale')
+      //-------------------------------------
+       m.before_submit_2=function(record,dbv){
+           return true;
+       }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
