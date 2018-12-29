@@ -731,7 +731,7 @@
                  <div class="form-group"><div class="questiongroup ">
                         <fieldset class="">
                            <label style="width:100%"><span class="">d. if you answered ‘Yes’ to any of the questions 8a, 8b, or 8c, please describe what happened.</span>
-                               <textarea class="form-control" id="HPQ_8d__ID" name="HPQ_8d" ></textarea>
+                               <textarea class="form-control" name="HPQ_8d" ></textarea>
                            </label><br>
                          </fieldset>
                  </div></div>
@@ -1305,7 +1305,7 @@
                     <div class="questiongroup ">
                           <fieldset class="subquestions">
                               <label class="">
-                                <select id="HPQ_16__ID" name="HPQ_16" class="form-control" >
+                                <select name="HPQ_16" class="form-control" >
                                     <option value=''>please select ...</option>
                                      <option value=1 >a. $1-$999 </option>
                                      <option value=2 >b. $1,000-$1,999</option>
@@ -1387,10 +1387,10 @@
                         $("#D__ID input[name=HPQ_8b]").prop('required', true);
                         $("#D__ID input[name=HPQ_8c]").prop('required', true);
                         if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                            $("#HPQ_8d__ID").prop('required', true);
+                            $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                         }
                         else {
-                            $("#HPQ_8d__ID").prop('required', false);
+                            $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                         }
                         $("#D__ID input[name=HPQ_9a]").prop('required', true);
                         $("#D__ID input[name=HPQ_9b]").prop('required', true);
@@ -1403,13 +1403,13 @@
                         $("#D__ID input[name=HPQ_11]").prop('required', true);
                         $("#D__ID input[name=HPQ_12]").prop('required', true);
                         $("#D__ID input[name=HPQ_13]").prop('required', true);
-                        $("#HPQ_16__ID").prop('required', true);
+                        $("#D__ID select[name=HPQ_16]").prop('required', true);
                     }
                     else{
                         $("#D__ID input[name=HPQ_8a]").prop('required', false);
                         $("#D__ID input[name=HPQ_8b]").prop('required', false);
                         $("#D__ID input[name=HPQ_8c]").prop('required', false);
-                        $("#HPQ_8d__ID").prop('required', false);
+                        $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                         $("#D__ID input[name=HPQ_9a]").prop('required', false);
                         $("#D__ID input[name=HPQ_9b]").prop('required', false);
                         $("#D__ID input[name=HPQ_9c]").prop('required', false);
@@ -1421,7 +1421,7 @@
                         $("#D__ID input[name=HPQ_11]").prop('required', false);
                         $("#D__ID input[name=HPQ_12]").prop('required', false);
                         $("#D__ID input[name=HPQ_13]").prop('required', false);
-                        $("#HPQ_16__ID").prop('required', true);
+                        $("#D__ID select[name=HPQ_16]").prop('required', true);
                     }
                 }
                 else {
@@ -1437,7 +1437,7 @@
                     $("#D__ID input[name=HPQ_8a]").prop('required', false);
                     $("#D__ID input[name=HPQ_8b]").prop('required', false);
                     $("#D__ID input[name=HPQ_8c]").prop('required', false);
-                    $("#HPQ_8d__ID").prop('required', false);
+                    $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                     $("#D__ID input[name=HPQ_9a]").prop('required', false);
                     $("#D__ID input[name=HPQ_9b]").prop('required', false);
                     $("#D__ID input[name=HPQ_9c]").prop('required', false);
@@ -1449,7 +1449,7 @@
                     $("#D__ID input[name=HPQ_11]").prop('required', false);
                     $("#D__ID input[name=HPQ_12]").prop('required', false);
                     $("#D__ID input[name=HPQ_13]").prop('required', false);
-                    $("#HPQ_16__ID").prop('required', false);
+                    $("#D__ID select[name=HPQ_16]").prop('required', false);
                 }
             }
             //-------------------------------------
@@ -1583,10 +1583,10 @@
                        $("#D__ID input[name=HPQ_8b]").prop('required', true);
                        $("#D__ID input[name=HPQ_8c]").prop('required', true);
                        if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                           $("#HPQ_8d__ID").prop('required', true);
+                           $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                        }
                        else {
-                           $("#HPQ_8d__ID").prop('required', false);
+                           $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                        }
                        $("#D__ID input[name=HPQ_9a]").prop('required', true);
                        $("#D__ID input[name=HPQ_9b]").prop('required', true);
@@ -1599,13 +1599,13 @@
                        $("#D__ID input[name=HPQ_11]").prop('required', true);
                        $("#D__ID input[name=HPQ_12]").prop('required', true);
                        $("#D__ID input[name=HPQ_13]").prop('required', true);
-                       $("#HPQ_16__ID").prop('required', true);
+                       $("#D__ID select[name=HPQ_16]").prop('required', true);
                    }
                    else{
                        $("#D__ID input[name=HPQ_8a]").prop('required', false);
                        $("#D__ID input[name=HPQ_8b]").prop('required', false);
                        $("#D__ID input[name=HPQ_8c]").prop('required', false);
-                       $("#HPQ_8d__ID").prop('required', false);
+                       $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                        $("#D__ID input[name=HPQ_9a]").prop('required', false);
                        $("#D__ID input[name=HPQ_9b]").prop('required', false);
                        $("#D__ID input[name=HPQ_9c]").prop('required', false);
@@ -1617,7 +1617,7 @@
                        $("#D__ID input[name=HPQ_11]").prop('required', false);
                        $("#D__ID input[name=HPQ_12]").prop('required', false);
                        $("#D__ID input[name=HPQ_13]").prop('required', false);
-                       $("#HPQ_16__ID").prop('required', true);
+                       $("#D__ID select[name=HPQ_16]").prop('required', true);
                    }
                }
                else {
@@ -1633,7 +1633,7 @@
                    $("#D__ID input[name=HPQ_8a]").prop('required', false);
                    $("#D__ID input[name=HPQ_8b]").prop('required', false);
                    $("#D__ID input[name=HPQ_8c]").prop('required', false);
-                   $("#HPQ_8d__ID").prop('required', false);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                    $("#D__ID input[name=HPQ_9a]").prop('required', false);
                    $("#D__ID input[name=HPQ_9b]").prop('required', false);
                    $("#D__ID input[name=HPQ_9c]").prop('required', false);
@@ -1645,7 +1645,7 @@
                    $("#D__ID input[name=HPQ_11]").prop('required', false);
                    $("#D__ID input[name=HPQ_12]").prop('required', false);
                    $("#D__ID input[name=HPQ_13]").prop('required', false);
-                   $("#HPQ_16__ID").prop('required', false);
+                   $("#D__ID select[name=HPQ_16]").prop('required', false);
                }
            })
            //-------------------------------------
@@ -1655,10 +1655,10 @@
                    $("#D__ID input[name=HPQ_8b]").prop('required', true);
                    $("#D__ID input[name=HPQ_8c]").prop('required', true);
                    if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                       $("#HPQ_8d__ID").prop('required', true);
+                       $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                    }
                    else {
-                       $("#HPQ_8d__ID").prop('required', false);
+                       $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                    }
                    $("#D__ID input[name=HPQ_9a]").prop('required', true);
                    $("#D__ID input[name=HPQ_9b]").prop('required', true);
@@ -1671,13 +1671,13 @@
                    $("#D__ID input[name=HPQ_11]").prop('required', true);
                    $("#D__ID input[name=HPQ_12]").prop('required', true);
                    $("#D__ID input[name=HPQ_13]").prop('required', true);
-                   $("#HPQ_16__ID").prop('required', true);
+                   $("#D__ID select[name=HPQ_16]").prop('required', true);
                }
                else{
                    $("#D__ID input[name=HPQ_8a]").prop('required', false);
                    $("#D__ID input[name=HPQ_8b]").prop('required', false);
                    $("#D__ID input[name=HPQ_8c]").prop('required', false);
-                   $("#HPQ_8d__ID").prop('required', false);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                    $("#D__ID input[name=HPQ_9a]").prop('required', false);
                    $("#D__ID input[name=HPQ_9b]").prop('required', false);
                    $("#D__ID input[name=HPQ_9c]").prop('required', false);
@@ -1689,34 +1689,34 @@
                    $("#D__ID input[name=HPQ_11]").prop('required', false);
                    $("#D__ID input[name=HPQ_12]").prop('required', false);
                    $("#D__ID input[name=HPQ_13]").prop('required', false);
-                   $("#HPQ_16__ID").prop('required', true);
+                   $("#D__ID select[name=HPQ_16]").prop('required', true);
                }
            })
            //-------------------------------------
            $("#D__ID input[name=HPQ_8a]").on('click', function(){
                if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                   $("#HPQ_8d__ID").prop('required', true);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                }
                else {
-                   $("#HPQ_8d__ID").prop('required', false);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                }
            });
            //-------------------------------------
            $("#D__ID input[name=HPQ_8b]").on('click', function(){
                if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                   $("#HPQ_8d__ID").prop('required', true);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                }
                else {
-                   $("#HPQ_8d__ID").prop('required', false);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                }
            });
            //-------------------------------------
            $("#D__ID input[name=HPQ_8c]").on('click', function(){
                if($("#D__ID input[name=HPQ_8a]:checked").val()=='1' || $("#D__ID input[name=HPQ_8b]:checked").val()=='1' || $("#D__ID input[name=HPQ_8c]:checked").val()=='1'){
-                   $("#HPQ_8d__ID").prop('required', true);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', true);
                }
                else {
-                   $("#HPQ_8d__ID").prop('required', false);
+                   $("#D__ID textarea[name=HPQ_8d]").prop('required', false);
                }
            });
 

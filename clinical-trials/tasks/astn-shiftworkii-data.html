@@ -1,0 +1,39 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="SWD_1,SWD_2,SWD_3,SWD_4,SWD";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('Shiftwork II')
+      //-------------------------------------
+
+      m.before_submit_2=function(record,dbv){
+          var vh=0;
+          var vl=0;
+          vh= ((parseFloat(record.SWD_1)+1)*2.24+
+              (parseFloat(record.SWD_2)+1)*2.406+
+              (parseFloat(record.SWD_3)+1)*1.615+
+              (parseFloat(record.SWD_4)+1)*0.412)-8.859;
+          vl= ((parseFloat(record.SWD_1)+1)*1.576+
+              (parseFloat(record.SWD_2)+1)*1.305+
+              (parseFloat(record.SWD_3)+1)*1.204+
+              (parseFloat(record.SWD_4)+1)*0.949)-5.189;
+          if(vl>vh) record.SWD='Low risk of SWD';
+          else record.SWD='High risk of SWD';
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>

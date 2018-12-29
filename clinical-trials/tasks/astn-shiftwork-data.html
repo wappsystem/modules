@@ -1,0 +1,22 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="current_work,shift_no,shift_start1,shift_end1,shift_month1,shift_start2,shift_end2,shift_month2,shift_start3,shift_end3,shift_month3,shift_start4,shift_end4,shift_month4,shift_start5,shift_end5,shift_month5,shift_start6,shift_end6,shift_month6,shift_start7,shift_end7,shift_month7,shift_years_morning,shift_last_date_morning,shift_years_afternoon,shift_last_date_afternoon,shift_years_night,shift_last_date_night,shift_years_extended,shift_last_date_extended";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      $('#title__ID').text('Shiftwork')
+      //-------------------------------------
+  }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
