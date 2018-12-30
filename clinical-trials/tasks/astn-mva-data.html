@@ -1,0 +1,22 @@
+<div id=D__ID>
+  <div>
+      VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+  function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="MVA_drive,MVA_accident,accident_vehicle_work,accident_vehicle_nonwork,accident_novehicle_work,accident_nonvehicle_nowork,MVAacc_sleep,MVA_nearmiss,nearmiss_vehicle_work,nearmiss_vehicle_nonwork,nearmiss_novehicle_work,nearmiss_nonvehicle_nowork,MVAnmiss_sleep,fear_drivesleep,drive_nod,alert_caffeine,alert_radio,alert_air,alert_break,dirve_km,drive_yrs,drive_wkhrs,drive_professional";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields="Participant_uid,Participant,"+fields;
+      //-------------------------------------
+      $('#title__ID').text('Motor Vehicle Accidents')
+      //-------------------------------------
+  }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
