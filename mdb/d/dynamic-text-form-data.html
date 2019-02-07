@@ -1,16 +1,17 @@
 <section>
-    VmInclude:__COMPONENT__/g/grid.01.html
+    VmInclude:__CURRENT_PATH__/../../g/grid.v1h.html
 </section>
 <script>
     function F__ID(){
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
-        //-------------------------------------
-        var fields="First_Entry,Second_Entry,Third_Entry";
-        m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
-        m.form_fields="Participant_uid,Participant,"+fields;
+        VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
         //-------------------------------------
         $('#title__ID').text('Dynamically generated form from label names')
+        //-------------------------------------
+        var fields="First_Entry,Second_Entry,Third_Entry";
+        m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
     }
 </script>
 <style>

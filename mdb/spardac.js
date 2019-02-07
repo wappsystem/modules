@@ -13,11 +13,13 @@
         "notes":  		  	  			{url:"$A/modules/mdb/n/notes.html"},
 
         "dynamic-text-form-data-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-data.html",Table:"dynamic-text-form-spardac",form_module:"dynamic-text-form-form-spardac"},
-        "dynamic-text-form-form-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-form.html.html",Table:"dynamic-text-form-spardac"},
+        "dynamic-text-form-form-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-form.html",Table:"dynamic-text-form-spardac"},
         "one-many-standard-data-spardac":	    {url:"$A/modules/mdb/o/one-many-standard-data.html",Table:"one-many-standard-spardac",form_module:"one-many-standard-form-spardac"},
         "one-many-standard-form-spardac":	    {url:"$A/modules/mdb/o/one-many-standard-form.html",Table:"one-many-standard-spardac"},
-        "adverseevents-data-3m-spardac":	    {url:"$A/modules/mdb/a/adverseevents-data-spardac.html",Table:"cpap-adverseevents-3m",form_module:"adverseevents-form-3m-spardac"},
-        "adverseevents-form-3m-spardac":	    {url:"$A/modules/mdb/a/adverseevents-form-spardac.html",Table:"cpap-adverseevents-3m"},
+        "one-many-special-1-data-spardac":	    {url:"$A/modules/mdb/o/one-many-special-1-data.html",Table:"one-many-special-1-spardac",form_module:"one-many-special-1-form-spardac"},
+        "one-many-special-1-form-spardac":	    {url:"$A/modules/mdb/o/one-many-special-1-form.html",Table:"one-many-special-1-spardac"},
+        "one-many-special-2-data-spardac":	    {url:"$A/modules/mdb/o/one-many-special-2-data.html",Table:"one-many-special-2-spardac",form_module:"one-many-special-2-form-spardac"},
+        "one-many-special-2-form-spardac":	    {url:"$A/modules/mdb/o/one-many-special-2-form.html",Table:"one-many-special-2-spardac"},
 
         "bloodgas-data-spardac":                   {url:"$A/modules/mdb/b/bloodgas-data-spardac.html",Table:"bloodgas-spardac",form_module:"bloodgas-form-spardac"},
         "bloodgas-form-spardac":                   {url:"$A/modules/mdb/b/bloodgas-form-spardac.html",Table:"bloodgas-spardac"},
