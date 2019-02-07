@@ -3,12 +3,12 @@
         "panel-main-spardac":    			{url:"$A/modules/mdb/p/panel-spardac/panel-main.html",router:1},
         "panel-child-spardac":    			{url:"$A/modules/mdb/p/panel-spardac/panel-child.html"},
         
-        "participant-data-spardac":   		{url:"$A/modules/mdb/p/participant-data-spardac.html",Table:"spardac-participant",form_module:"participant-form-spardac",router:1,
+        "participant-data":   		{url:"$A/modules/mdb/p/participant-data-spardac.html",Table:"spardac-participant",form_module:"participant-form",router:1,
                                             child_panel:"panel-child-spardac",
                                             questionnaire_setup:"online-questionnaire-setup-spardac",
                                             online_questionnaire:"online-questionnaire-app-spardac"
                                         },
-        "participant-form-spardac":   		{url:"$A/modules/mdb/p/participant-form-spardac.html",Table:"spardac-participant"},
+        "participant-form":   		{url:"$A/modules/mdb/p/participant-form-spardac.html",Table:"spardac-participant"},
 
         "notes":  		  	  			{url:"$A/modules/mdb/n/notes.html"},
 

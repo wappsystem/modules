@@ -2,7 +2,7 @@
 var participant_name=function(record){ if(record.Data.Subject_Initials!=undefined) return record.UID+' '+record.Data.Subject_Initials; else return record.UID;}
 //-------------------------------------
 //auto select particpant
-var autocomplete_req_p={cmd:"find",table:'participant',options:{},skip:0,limit:10}
+var autocomplete_req_p={cmd:"find",table:$vm.module_list['participant-data'].Table,options:{},skip:0,limit:10}
 var autocomplete_callback_p=function(items){ $("#F__ID input[name=Participant_uid]").val(items["UID"]);}
 var autocomplete_list_p=function(records){
     var items=[];
