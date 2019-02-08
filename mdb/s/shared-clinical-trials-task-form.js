@@ -54,6 +54,7 @@ m.load=function(){
         I2++; if(I2>50){ clearInterval(loop_2); alert("jquery-ui.min.js is not installed.");}
     },100);
     //-------------------------------------
+    if(m.load_2!=undefined) m.load_2();
 }
 //-------------------------------------
 m.before_submit=function(data){
