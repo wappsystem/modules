@@ -35,13 +35,13 @@
         "star-rating-data-spardac":             {url:"$A/modules/mdb/s/star-rating-data.html",Table:"star-rating-spardac",form_module:"star-rating-form-spardac"},
         "star-rating-form-spardac":             {url:"$A/modules/mdb/s/star-rating-form.html",Table:"star-rating-spardac"},
     
-        "date-time-data-spardac":   	{url:"$A/modules/mdb/c/date-time-datac.html",Table:"date-time-spardac",form_module:"date-time-form-spardac"},
-        "date-time-form-spardac":   	{url:"$A/modules/mdb/c/date-time-form.html",Table:"date-time-spardac"},
-        "number-max-min-data-spardac":   {url:"$A/modules/mdb/n/number-max-min-data.html",Table:"number-max-min-spardac",form_module:"number-max-min-form-spardac"},
-        "number-max-min-form-spardac":   {url:"$A/modules/mdb/n/number-max-min-form.html",Table:"number-max-min-spardac"},
+        "date-time-data-spardac":   	{url:"$A/modules/mdb/d/date-time-data.html",Table:"date-time-spardac",form_module:"date-time-form-spardac"},
+        "date-time-form-spardac":   	{url:"$A/modules/mdb/d/date-time-form.html",Table:"date-time-spardac"},
+        "number-max-min-data-spardac":   {url:"$A/modules/mdb/n/numbers-data.html",Table:"number-max-min-spardac",form_module:"number-max-min-form-spardac"},
+        "number-max-min-form-spardac":   {url:"$A/modules/mdb/n/numbers-form.html",Table:"number-max-min-spardac"},
 
-        "'concom-medication-data-spardac":   {url:"$A/modules/mdb/c/'concom-medication-data.html",Table:"'concom-medication-spardac",form_module:"'concom-medication-form-spardac"},
-        "'concom-medication-form-spardac":   {url:"$A/modules/mdb/c/'concom-medication-form.html",Table:"'concom-medication-spardac"},
+        "concom-medication-data-spardac":   {url:"$A/modules/mdb/c/concom-medication-data.html",Table:"concom-medication-spardac",form_module:"concom-medication-form-spardac"},
+        "concom-medication-form-spardac":   {url:"$A/modules/mdb/c/concom-medication-form.html",Table:"concom-medication-spardac"},
         "adverse-event-data-spardac":   {url:"$A/modules/mdb/a/adverse-event-data.html",Table:"adverse-event-spardac",form_module:"adverse-event-form-spardac"},
         "adverse-event-form-spardac":   {url:"$A/modules/mdb/a/adverse-event-form.html",Table:"adverse-event-spardac"}
     }
