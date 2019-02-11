@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <!-- form start -->
                         <form id="F__ID">
-                            <h3>Multiple lines text input</h3>
+                            <h3>File Upload</h3>
                             <!-- participant part for all tsak forms -------------------->
                             <div id="participant_div__ID">
                                 <div class="form-group">
@@ -25,22 +25,19 @@
                             </div>
                             <!-- form group -->
                             <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="">
-                                        <label style="width:100%"><span class="">Text 1</span>
-                                            <textarea class="form-control" name="text_1"
-                                                placeholder="Instruction"></textarea>
-                                        </label><br>
-                                    </fieldset>
-                                </div>
+                                <fieldset class="subquestions">
+                                    <h4>This is an example how a file upload look like. This can be added into any form.
+                                    </h4>
+                                </fieldset>
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="">
-                                        <label style="width:100%"><span class="">Text 2</span>
-                                            <textarea class="form-control" name="text_2"
-                                                placeholder="Instruction"></textarea>
-                                        </label><br>
+                                        <div class="form-control">
+                                            <u style='cursor:pointer' id=link_File_Name__ID></u>
+                                            <br>
+                                            <input type="file" name=File_Name style="margin-top:6px" /> <button type="button" id=x_File_Name__ID>Remove</button>
+                                        </div>
                                     </fieldset>
                                 </div>
                             </div>
@@ -51,18 +48,25 @@
             </div>
         </div>
     </div>
+    VmInclude:__COMPONENT__/m/model.01.html
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
             VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
             //-------------------------------------
+            m.old_load=m.load;
+            m.load=function(){
+                m.old_load();
+                m.set_file_link("File_Name");
+            }
+            //-------------------------------------
         }
     </script>
     <style>
         #D__ID .mt-95 {
         max-width:600px;
-    }
+        }
         VmInclude:__CURRENT_PATH__/../../w/wappsystem-form.css
     </style>
 </div>
