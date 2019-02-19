@@ -1,0 +1,27 @@
+<div id=D__ID>
+  <div>
+    VmInclude:__CURRENT_PATH__/../../components/grid.v1h.html
+  </div>
+  <script>
+    function F__ID(){
+      //-------------------------------------
+      VmInclude:__COMPONENT__/module/grid.v1.js
+      VmInclude:__CURRENT_PATH__/task-data.js
+      //-------------------------------------
+      var fields="SHI_1,SHI_2,SHI_3,SHI_4,SHI_5,SHI_6,SHI_7,SHI_8,SHI_9,SHI_10,SHI_11,SHI_12,SHI_13,SHI";
+      m.fields="_Form,Status|S3,Notes|NT,Participant_ID|Participant_uid,Participant,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
+      m.form_fields=fields;
+      //-------------------------------------
+      $('#title__ID').text('The Sleep Hygiene Index (SHI)')
+      //-------------------------------------
+      m.before_submit_2=function(record,dbv){
+          record.SHI = (parseInt(record.SHI_1) + parseInt(record.SHI_2) + parseInt(record.SHI_3) + parseInt(record.SHI_4) + parseInt(record.SHI_5) + parseInt(record.SHI_6) + parseInt(record.SHI_7) + parseInt(record.SHI_8) + parseInt(record.SHI_9) + parseInt(record.SHI_10) + parseInt(record.SHI_11) + parseInt(record.SHI_12) + parseInt(record.SHI_13)).toString();
+          return true;
+      }
+      //-------------------------------------
+    }
+  </script>
+  <style>
+    VmInclude:__COMPONENT__/module/grid.v1.css
+  </style>
+</div>
