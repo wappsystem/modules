@@ -33,7 +33,7 @@ var load=m.load;
 m.load=function(){
     load();
     if($vm.online_questionnaire==1) $('#pdf__ID').hide();
-    //--------------------------
+//--------------------------
     if(m.input!=undefined && m.input.participant_record!=undefined){
         //new from child panel
         $("#F__ID input[name=Participant]").val(participant_name(m.input.participant_record));
@@ -64,6 +64,10 @@ m.load=function(){
 }
 //-------------------------------------
 m.before_submit=function(data){
+    if ($("#F__ID input[name=Participant]").val()=='' || $("#F__ID input[name=Participant_uid]").val()==''){
+        $vm.alert("Please select a participant. Make sure Participant ID has a number.") 
+        return false;    
+    }
    data.sysStatus=$vm.status_of_data(data);
 };
 //-------------------------------------
