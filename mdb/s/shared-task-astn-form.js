@@ -1,5 +1,5 @@
 //-------------------------------------
-var participant_name=function(record){ if(record.Data.Subject_Initials!=undefined) return record.UID+' '+record.Data.Subject_Initials; else return record.UID;}
+var participant_name=function(record){ if(record.Data.Initials!=undefined) return record.UID+' '+record.Data.Initials; else return record.UID;}
 //-------------------------------------
 //auto select particpant
 var autocomplete_req_p={cmd:"find",table:$vm.module_list['participant-shq-data'].Table,options:{},skip:0,limit:10}
@@ -30,9 +30,8 @@ m.load=function(){
     load();
     if($vm.online_questionnaire==1) $('#pdf__ID').hide();
 //--------------------------
-alert(JSON.stringify(m.input))
-alert(m.input.participant_record.Data.Local_ID)
-
+//alert(JSON.stringify(m.input))
+//alert(m.input.participant_record.Data.Local_ID)
     if(m.input!=undefined && m.input.participant_record!=undefined){
         //new from child panel
         $("#F__ID input[name=Participant]").val(m.input.participant_record.Data.Local_ID + ' '+m.input.participant_record.Data.Initials);
