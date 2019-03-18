@@ -8,7 +8,7 @@
             <div class="col-12">
               <!-- form start -->
               <form id="F__ID">
-                 <h3>Background Information</h3>
+                 <h3>Anthropometry, Age, Sex</h3>
                  <!-- participant part for all tsak forms -------------------->
                  <div id="participant_div__ID">
                      <div class="form-group">
@@ -35,18 +35,21 @@
                          <fieldset class="">
                              <h4>Demographics</h4>
                              <label ><span class="">Age (years)</span>
-                                 <input class="form-control" type="number" min=15 max=100 name="AGE" placeholder="" >
+                                 <input class="form-control" type="number" min=15 max=100 name="age" placeholder="" >
                              </label>
                          </fieldset>
-                         <label ><span class="">Gender</span>
+                         <label ><span class="">Sex</span>
                          </label><br>
                           <label class="radiobuttons">
-                           <input type="radio" name="gender" value="Male" required >
+                           <input type="radio" name="sex" value="Male" required >
                            <span class="checkmark"></span> Male</label>
-                         <label class="radiobuttons">
-                           <input type="radio" name="gender" value="Female">
-                           <span class="checkmark"></span> Female</label>
-                     </div>
+                           <label class="radiobuttons">
+                                <input type="radio" name="sex" value="Female">
+                                <span class="checkmark"></span> Female</label>
+                        <label class="radiobuttons">
+                                <input type="radio" name="sex" value="Non-binary">
+                                <span class="checkmark"></span> Non-binary</label>
+                                </div>
                  </div>
                  <div class="form-group">
      				 <div class="questiongroup ">
@@ -63,27 +66,6 @@
                          </fieldset>
                      </div>
                  </div>
-                 <div class="form-group">
-                     <div class="questiongroup ">
-                         <fieldset class="">
-                             <h4>Handedness</h4>
-                             <label ><span class="">Handedness</span>
-                             </label><br>
-                              <label class="radiobuttons">
-                               <input type="radio" name="handedness" value="Left" required >
-                               <span class="checkmark"></span> Left
-                              </label>
-                              <label class="radiobuttons">
-                                  <input type="radio" name="handedness" value="Right">
-                                  <span class="checkmark"></span> Right
-                              </label>
-                              <label class="radiobuttons">
-                                  <input type="radio" name="handedness" value="Both">
-                                  <span class="checkmark"></span> Both
-                              </label>
-                           </fieldset>
-                     </div>
-                 </div>
                  <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
               </form>
             </div>
@@ -95,7 +77,7 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
+          VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
             //-------------------------------------
             $('#weight__ID').on('keyup',function(){
                 if($('#height__ID').val()!=='' || $('#height__ID').val()!==undefined || $('#weight__ID').val()!=='' || $('#weight__ID').val()!==undefined){

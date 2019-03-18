@@ -61,11 +61,12 @@ m.load=function(){
     if(m.load_2!=undefined) m.load_2();
 }
 //-------------------------------------
-m.before_submit=function(data){
+m.before_submit=function(data,index){
+    index.I1=$vm.astn_current_project_record.UID;
     if ($("#F__ID input[name=Participant]").val()=='' || $("#F__ID input[name=Participant_uid]").val()==''){
-        $vm.alert("Please select a participant. Make sure Participant ID has a number.") 
-        return false;    
+    $vm.alert("Please select a participant. Make sure Participant ID has a number.") 
+    return false; 
     }
-   data.sysStatus=$vm.status_of_data(data);
-};
+    data.sysStatus=$vm.status_of_data(data);
+    };    
 //-------------------------------------

@@ -5,11 +5,11 @@
   function F__ID(){
       //-------------------------------------
       VmInclude:__COMPONENT__/g/grid.01.js
-      VmInclude:__CURRENT_PATH__/../../s/shared-task-astn-data.js
+      VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
       //-------------------------------------
-      $('#title__ID').text('Lifestyle')
+      $('#title__ID').text('Horne & Östberg Morningness-Eveningness Composite Questionnaire')
       //-------------------------------------
-      var fields="general_health,physical_activity,smoke,smoke_regular,smoke_stop,smoke_age,smoke_per_day,alcohol,alcohol_standard_wd,alcohol_standard_nwd,caffeine,caffeine_wd,caffeine_nwd,caffeine_bed_wd,caffeine_bed_nwd";
+      var fields="ME_1,ME_2,ME_3,ME_4,ME_5,ME_6,ME_7,ME_8,ME_9,ME_10,ME_11,ME_12,ME_13,ME";
       m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
       //-------------------------------------
   }

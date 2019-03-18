@@ -5,11 +5,11 @@
   function F__ID(){
       //-------------------------------------
       VmInclude:__COMPONENT__/g/grid.01.js
-      VmInclude:__CURRENT_PATH__/../../s/shared-task-astn-data.js
+      VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
       //-------------------------------------
-      $('#title__ID').text('Depression Anxiety Stress Scale')
+      $('#title__ID').text('Ethnicity')
       //-------------------------------------
-      var fields="DASS_1,DASS_2,DASS_3,DASS_4,DASS_5,DASS_6,DASS_7,DASS_8,DASS_9,DASS_10,DASS_11,DASS_12,DASS_13,DASS_14,DASS_15,DASS_16,DASS_17,DASS_18,DASS_19,DASS_20,DASS_21,DASS_D,DASS_A,DASS_S";
+      var fields="ethnicity_0,ethnicity_1,ethnicity_2,ethnicity_3,ethnicity_4,ethnicity_5,ethnicity_6,ethnicity_7,ethnicity_8,ethnicity_9,ethnicity_10,ethnicity_11,ethnicity_other,COB";
       m.fields="_Form,_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
       //-------------------------------------
   }
