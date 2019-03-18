@@ -24,6 +24,35 @@
                       </div>
                   </div>
                   <div class="form-group">
+                    <div class="questiongroup ">
+                        <fieldset class="">
+                            <label ><span class="">Age (years)</span>
+                                <input class="form-control" type="number" min=15 max=100 name="Age" placeholder="" required >
+                            </label>
+                        </fieldset>
+                        <label ><span class="">Gender</span>
+                        </label><br>
+                         <label class="radiobuttons">
+                          <input type="radio" name="gender" value="Male" required >
+                          <span class="checkmark"></span> Male</label>
+                        <label class="radiobuttons">
+                          <input type="radio" name="gender" value="Female">
+                          <span class="checkmark"></span> Female</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="questiongroup ">
+                      <fieldset class="subquestions">
+                          <label ><span class="">Weight (kg)</span>
+                              <input class="form-control" type="number" min=30 max=250 name="Weight" id=weight__ID placeholder="" required >
+                          </label><br>
+                          <label ><span class="">Height (cm)</span>
+                              <input class="form-control" type="number" name="Height" id=height__ID min=100 max=250 placeholder="" required >
+                          </label><br>
+                        </fieldset>
+                    </div>
+                </div>
+                 <div class="form-group">
                       <fieldset class="subquestions">
                           <h4>During the last month, on how many nights or days per week have you been told you had the following? <br>
                           Show the frequency by clicking the circle. </h4>
@@ -168,7 +197,6 @@
           var load2=m.load;
               m.load=function(){
               load2();
-              alert("Get Age, height, weight and sex from other records.")
               for(var i=0;i<8;i++){
                   set_selected_text(i+1)
               }
@@ -203,10 +231,10 @@
          //-------------------------------------
          var before_submit=m.before_submit;
               m.before_submit=function(data,index){
-              var age='';age='50'
-              var height='';height='190'
-              var weight='';weight='85';
-              var sex=''; sex='';
+              var age='';age=$("#D__ID input[name=Age]").val();
+              var height='';height=$("#D__ID input[name=Height]").val();
+              var weight='';weight=$("#D__ID input[name=Weight]").val();
+              var sex=''; sex=$("#D__ID input[name=gender]:checked").val()
               var answ=0;
               var v1=0;
               var v2=0;
@@ -219,10 +247,13 @@
                       data.MAP="age, sex, height or/and weight is/are missing. Can't calculate MAP Score";
                   }
                   else{
-                      if(sex=='0') sex=1; else sex=0;
-                      var index=(v1+v2+v3)/answ;
+                      if(sex=='Male') sex=1; else sex=0;
+                      age=parseFloat(age);
+                      height=parseFloat(height);
+                      weight=parseFloat(weight);
+                      var map_index=(v1+v2+v3)/answ;
                       var bmi=weight/height/height*100*100;
-                      var x=-8.160+1.229*index+0.163*bmi-0.028*index*bmi+0.032*age+1.278*sex;
+                      var x=-8.160+1.229*map_index+0.163*bmi-0.028*map_index*bmi+0.032*age+1.278*sex;
     	              data.MAP=(Math.exp(x)/(1+Math.exp(x))).toFixed(2);
                   }
               }

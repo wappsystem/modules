@@ -64,10 +64,10 @@
                  <div id=forth_question__ID>
                      <div  class="form-group">
                          <h4>4. If yes to all of the above, How often do these feelings occur?</h4>
-         				<div class="questiongroup">
+         				          <div class="questiongroup">
                              <fieldset>
                                  <label class="radiobuttons">
-                                   <input type="radio" name="RLS_4" value="0" required>
+                                   <input type="radio" name="RLS_4" id=RLS_4__ID value="0" >
                                    <span class="checkmark"></span> Less than one time a year</label><br>
                                  <label class="radiobuttons">
                                    <input type="radio" name="RLS_4" value="1">
@@ -108,46 +108,46 @@
       m.load=function(){
           load2();
           if($("input[name='RLS_1']:checked").val()=='1' && $("input[name='RLS_2']:checked").val()=='1' && $("input[name='RLS_3']:checked").val()=='1' ){
-              $("input[name='RLS_1']").prop('requried', true);
               $("#forth_question__ID").show();
+              $('#RLS_4__ID').prop('required', true);
           }
           else{
               $("#forth_question__ID").hide();
-              $("input[name='RLS_4']").prop('requried',false);
+              $('#RLS_4__ID').prop('required',false);
               $("input[name='RLS_4']").prop('checked',false);
           }
       }
       //-------------------------------------
       $("input[name='RLS_1']").on('click', function(){
           if($("input[name='RLS_1']:checked").val()=='1' && $("input[name='RLS_2']:checked").val()=='1' && $("input[name='RLS_3']:checked").val()=='1' ){
-              $("input[name='RLS_1']").prop('requried', true);
               $("#forth_question__ID").show();
+              $('#RLS_4__ID').prop('required',true);
           }
           else{
               $("#forth_question__ID").hide();
-              $("input[name='RLS_4']").prop('requried',false);
+              $('#RLS_4__ID').prop('required',false);
               $("input[name='RLS_4']").prop('checked',false);
           }
       });
       $("input[name='RLS_2']").on('click', function(){
           if($("input[name='RLS_1']:checked").val()=='1' && $("input[name='RLS_2']:checked").val()=='1' && $("input[name='RLS_3']:checked").val()=='1' ){
-              $("input[name='RLS_1']").prop('requried', true);
               $("#forth_question__ID").show();
+              $('#RLS_4__ID').prop('required', true);
           }
           else{
               $("#forth_question__ID").hide();
-              $("input[name='RLS_4']").prop('requried',false);
+              $('#RLS_4__ID').prop('required',false);
               $("input[name='RLS_4']").prop('checked',false);
           }
       });
       $("input[name='RLS_3']").on('click', function(){
           if($("input[name='RLS_1']:checked").val()=='1' && $("input[name='RLS_2']:checked").val()=='1' && $("input[name='RLS_3']:checked").val()=='1' ){
-              $("input[name='RLS_1']").prop('requried', true);
               $("#forth_question__ID").show();
+              $('#RLS_4__ID').prop('required',true);
           }
           else{
               $("#forth_question__ID").hide();
-              $("input[name='RLS_4']").prop('requried',false);
+              $('#RLS_4__ID').prop('required',false);
               $("input[name='RLS_4']").prop('checked',false);
           }
       });
