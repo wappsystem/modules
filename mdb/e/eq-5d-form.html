@@ -138,34 +138,35 @@
                 </div>
               </div>
               <div class="form-group">
-                  <div class=w3-quarter>
-                      <div  class=" w3-padding-8"  data-id=EQ_5D_6 data-custom=1 >
-                        <div class=EQ_5D_6 style='position:relative;height:850px; left: 0px; top: 0px; width: 110px;'>
-                          <img src='__CURRENT_PATH__/eq_5d_vertical.png' />
-                          <div id=indicator style='margin-top:67px;margin-left:42px;position:absolute;top:0px;left:0px;width:16px;height:5px;background-color:red;z-index:200'>
+                <div class="row">
+                  <div class=col-sm-8>
+                      <div class="form-group">
+                          <div class="questiongroup ">
+                              <fieldset class="subquestions">
+                                <legend>• We would like to know how good or bad your health is TODAY</legend>
+                                <legend>• This scale is numbered from 0 to 100.</legend>
+                                    <legend>• 100 means the best health you can imagine. 0 means the worst health you can imagine.</legend>
+                                      <legend>• Mark by clicking on the scale to indicate how your health is TODAY.</legend>
+                                        <legend>• Now, please write the number you marked on the scale in the box below.</legend>
+                                  </legend>
+                                  <label><span class="">YOUR HEALTH TODAY</span>
+                                      <input class="form-control" type="number" min=0 max=100 name="EQ_5D_6" required >
+                                  </label><br>
+                              </fieldset>
+                          </div>
+                      </div>
+              </div>
+                    <div class=col-sm-3>
+                        <div  class=" p-4" >
+                          <div class=EQ_5D_6__ID style='position:relative;height:618px; left: 0px; top: 0px; width: 80px;'>
+                            <img src='__CURRENT_PATH__/eq_5d_vertical.png' />
+                            <div id=indicator__ID >
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-  
-                <div class="row">
-                    <div class="col-sm control-group text-center">
-                        <label><span>Question 1</span></label>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-2 control-group text-right">
-                        <label><img src='__CURRENT_PATH__/eq_5d_vertical.png' /></label><input type="text" id="Question_1_req__ID" required style="width:1px;height:1px;background:rgba(255,255,255,0.95);border:0">
-                    </div>
-                    <div class="col-sm-2 control-group">
-                        <div class="slidecontainer" id=Question_1_con__ID>
-                            
-                            <input type="range" min="0" max="100" class="slider" name="Question_1"
-                                id="Question_1__ID">
-                        </div>
-                    </div>
-                </div>
-            </div>
               <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
             </form>
           </div>
@@ -179,95 +180,59 @@
       VmInclude: __COMPONENT__/f/form.01.js
       VmInclude: __CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
       //-------------------------------------
+      var position="";
+      //-------------------------------------
       var load2=m.load;
       m.load=function(){
         load2();
-        if(m.input.record != undefined){
-                $('<style>#Question_1_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 25px; height: 5px; background: #EA7859; cursor: pointer; }</style>').appendTo('head');                    
-            }
-            else{
-                $('<style>#Question_1_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 0px; height: 0px; background: #EA7859; cursor: pointer; }</style>').appendTo('head');                    
-            }
+        if(m.input.record == undefined){
+          $('#indicator__ID').hide();
         }
+        else{
+          $('#indicator__ID').show();
+          position=m.input.record.data.EQ_5D_6_scale
+          dx=position/100*510-565
+          $('#indicator__ID').css('margin-top',dx.toString()+'px');
+        }
+      }
         //-------------------------------
-        $('#Question_1__ID').on('click', function () {
-            $('<style>#Question_1_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; margin-left:-12px; width: 25px; height: 5px; background: #EA7859; cursor: pointer; }</style>').appendTo('head');
-            $('#Question_1_req__ID').val("OK")
+        $('.EQ_5D_6__ID').on('click', function () {
+          $('#indicator__ID').show()
+          var x0=$('.EQ_5D_6__ID').offset().top;
+          var x1=event.pageY
+          var dx=x1-x0-2;
+          //alert(x1+'-'+x0+' '+dx)
+          if(dx<55) dx=55;
+          if(dx>565) dx=565;
+          $('#indicator__ID').css('margin-top',dx.toString()+'px');
+          var pos=((510-(dx-55))*100/510).toFixed(0);
+          position=pos;
         })
-
-                    var v=_records[I][field];
-                    $(this).find('div.EQ_5D_6').find('div').show();
-                    var x00=$(this).position().top
-                    if(v===undefined || v===null ||v==='') $(this).find('div.EQ_5D_6').find('div').hide();
-                    if(v===undefined || v===null ||v==='') v=0;
-                    var w=700;
-                    var top=w*(111.2-v)/100;
-                    $(this).find('div.EQ_5D_6').find('div').css('margin-top',top.toString()+'px');
-
-
-                    $(this).find('div.EQ_5D_6').on('click',function(event){
-                        $(this).find('div').show();
-                        var x0=$(this).position().top
-                        var x1=event.pageY
-                        if(x1<1731) x1=1732;
-                        if(x1>2431) x1=2432;
-                        var dx=x1-x0;
-                        var pos=111.2-100*dx/w;
-                        $(this).find('div').css('margin-top',dx.toString()+'px');
-                        if(pos<0) pos=0
-                        _set_value((pos).toFixed(0),_records,I,field);
-                    })
+         //-------------------------------------
+         var before_submit=m.before_submit;
+            m.before_submit=function(data,index){
+              if(position==""){
+                $vm.alert("Please mark the scale.");
+                return false;
+              } 
+              data.EQ_5D_6_scale=position;
+              before_submit(data,index);
+          }
+          //-------------------------------------
 
       }
       //------------------------------------
   </script>
    <style>
-    #D__ID .mt-95 {
-    max-height:512px;
-    }
-    #D__ID .slidecontainer {
-        height: 512px;
-        margin-left:-95px;
-        margin-top:57px;
-        /* Width of the outside container */
-    }
-
-    /* The slider itself */
-    #D__ID .slider {
-        -webkit-appearance: none;
-        /* Override default CSS styles */
-        appearance: none;
-        height: 512px;
-        /* Full-width */
-        width: 40px;
-        /* Specified height */
-        background: #fff;
-        /* Grey background */
-        outline: none;
-        /* Remove outline */
-        opacity: 0.5;
-        /* Set transparency (for mouse-over effects on hover) */
-        -webkit-transition: .2s;
-        /* 0.2 seconds transition on hover */
-        transition: opacity .2s;
-    }
-
-    /* Mouse-over effects */
-    #D__ID .slider:hover {
-        opacity: 0.5;
-        /* Fully shown on mouse-over */
-    }
-
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    #D__ID .slider::-moz-range-thumb {
-        width: 25px;
-        /* Set a specific slider handle width */
-        height: 5px;
-        /* Slider handle height */
-        background: #EA7859;
-        /* Green background */
-        cursor: pointer;
-        /* Cursor on hover */
+    #D__ID #indicator__ID{
+      margin-left:26px;
+      position:absolute;
+      top:0px;
+      left:0px;
+      width:20px;
+      height:5px;
+      background-color:red;
+      z-index:200
     }
     VmInclude:__CURRENT_PATH__/../../w/wappsystem-form.css
 </style>
