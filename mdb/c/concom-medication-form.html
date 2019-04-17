@@ -36,8 +36,22 @@
                             <div class="form-group">
                                 <div class="questiongroup ">
                                     <fieldset class="subquestions">
-                                        <label><span class="">Dose</span>
-                                            <input class="form-control" type="text" name="Dose">
+                                        <label style="width:100%"><span class="">Indication</span>
+                                            <input class="form-control" type="text" name="Indication">
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <fieldset class="subquestions">
+                                  <h4>Dose</h4>
+                                </fieldset>
+                            </div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Amount</span>
+                                            <input class="form-control" type="text" name="Amount">
                                         </label><br>
                                         <label><span class="">Units</span>
                                             <input class="form-control" type="text" name="Units">
@@ -58,13 +72,24 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="questiongroup ">
-                                    <fieldset class="subquestions">
-                                        <label style="width:100%"><span class="">Indication</span>
-                                            <input class="form-control" type="text" name="Indication">
-                                        </label>
-                                    </fieldset>
-                                </div>
+                                <fieldset class="">
+                                    <div class=row>
+                                    <div class="col-6"><label><span class="">Frequency Codes:<br>
+                                        QD = 1 time daily <br>
+                                        BID = 2 times daily<br>
+                                        TID = 3 times daily <br>
+                                        QID = 4 times daily <br>
+                                        PRN = as needed<br>
+                                        BID/QOM = Twice a day every other month<br>
+                                        w/meal = with meals<br>
+                                        w/snack = with snack<br>
+                                    </span></label></div>
+                                    <div class="col-6"><label><span class="">Route Codes:<br>GT = Gastric<br>IV = Intravenous<br>SQ = subcutaneous
+                                        <br>NG = Nasogastric <br>NAS = Nasal <br>RE = Rectal
+                                        <br>TO = Topical <br>PO = Oral <br>IH = Inhaled
+                                        <br>IM = Intramuscular <br>IN = Intranasal</span></label></div>
+                                    </div>
+                                </fieldset>
                             </div>
                             <div class="form-group">
                                 <div class="questiongroup ">
@@ -83,6 +108,13 @@
                                     <fieldset class="subquestions">
                                         <label><span class="">Ongoing?</span>
                                             <select name="Ongoing" class=form-control>
+                                                <option></option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </label><br>
+                                        <label><span class="">For AE?</span>
+                                            <select name="AE" class=form-control>
                                                 <option></option>
                                                 <option>Yes</option>
                                                 <option>No</option>
